@@ -42,8 +42,8 @@ def get_logger(name: str = "cold_mailer", level: str = "INFO") -> logging.Logger
 # --- Column schemas for each CSV --------------------------------------------
 _SCHEMAS: dict[str, list[str]] = {
     "sent": ["timestamp", "email", "company", "person", "designation",
-             "subject", "template_category", "template_id", "provider",
-             "message_id", "status"],
+             "subject", "template_category", "template_id", "source",
+             "provider", "message_id", "status"],
     "failed": ["timestamp", "email", "company", "person", "subject",
                "error", "attempts"],
     "verified": ["timestamp", "email", "result", "strategy", "score"],

@@ -6,7 +6,7 @@ templates:
     body: |
       {{greeting}}
 
-      I came across {{company}} and wanted to ask directly: are you hiring Software Engineers right now? I've spent the last while working with {{skills}}, and {{top_highlight}} is the kind of work I'd love to keep building on.
+      I came across {{company}} and wanted to ask directly: are you hiring Software Engineers right now?{% if skills %} I've spent the last while working with {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} is the kind of work I'd love to keep building on.{% endif %}
 
       {% if job_title %}If the {{job_title}} role {% if job_id %}(Job ID {{job_id}}) {% endif %}is still open, I'd be glad to share more.{% else %}If there's a fit, I'd be happy to send over my background.{% endif %} {{cta}}
 
@@ -16,7 +16,7 @@ templates:
     body: |
       {{greeting}}
 
-      Are there any open SWE positions on your team at the moment? My recent work centers on {{skills}}, and I most recently {{recent_internship}}.
+      Are there any open SWE positions on your team at the moment?{% if skills %} My recent work centers on {{skills}}.{% endif %}{% if recent_internship %} I most recently {{recent_internship}}.{% endif %}
 
       {% if job_url %}I saw a posting here: {{job_url}}{% if job_id %} (Job ID {{job_id}}){% endif %}, and it looks like a strong match.{% else %}Even if nothing's posted publicly, I'd appreciate knowing if you expect to hire soon.{% endif %} {{cta}}
 
@@ -26,9 +26,9 @@ templates:
     body: |
       {{greeting}}
 
-      Reaching out because {{company}}'s work caught my attention and I'd like to know whether you have engineering roles open. The thing I'm proudest of recently: {{top_highlight}}.
+      Reaching out because {{company}}'s work caught my attention and I'd like to know whether you have engineering roles open.{% if top_highlight %} The thing I'm proudest of recently: {{top_highlight}}.{% endif %}
 
-      You can see more at {{github}} or {{portfolio}}. {% if job_title %}I'm especially curious about the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}) {% endif %}if it's still active.{% endif %} {{cta}}
+      {% if github %}You can see more at {{github}}.{% endif %}{% if portfolio %} You can also view my portfolio at {{portfolio}}.{% endif %} {% if job_title %}I'm especially curious about the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}) {% endif %}if it's still active.{% endif %} {{cta}}
 
       {{signature}}
   - id: job_opening_inquiry_04
@@ -36,7 +36,7 @@ templates:
     body: |
       {{greeting}}
 
-      Short and direct: is {{company}} hiring Software Engineers? I work mostly with {{skills}} and recently {{recent_internship}}.
+      Short and direct: is {{company}} hiring Software Engineers?{% if skills %} I work mostly with {{skills}}.{% endif %}{% if recent_internship %} Recently I {{recent_internship}}.{% endif %}
 
       {% if job_id %}If the role with Job ID {{job_id}} is open, I'd love to be considered.{% else %}Happy to share my resume if there's anything to apply for.{% endif %} {{cta}}
 
@@ -46,9 +46,9 @@ templates:
     body: |
       {{greeting}}
 
-      I've been following what {{company}} is building and wanted to check whether your engineering team is growing. My strongest area is {{skills}}, and {{top_highlight}} sums up the kind of problems I enjoy solving.
+      I've been following what {{company}} is building and wanted to check whether your engineering team is growing.{% if skills %} My strongest area is {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} sums up the kind of problems I enjoy solving.{% endif %}
 
-      My profiles: {{linkedin}} and {{github}}. {% if job_title %}If the {{job_title}} position {% if job_url %}({{job_url}}) {% endif %}is open, I'd welcome a conversation.{% endif %}
+      {% if linkedin %}You can find me on LinkedIn at {{linkedin}}.{% endif %}{% if github %} My code lives at {{github}}.{% endif %} {% if job_title %}If the {{job_title}} position {% if job_url %}({{job_url}}) {% endif %}is open, I'd welcome a conversation.{% endif %}
 
       {{signature}}
   - id: job_opening_inquiry_06
@@ -56,7 +56,7 @@ templates:
     body: |
       {{greeting}}
 
-      Would you have any Software Engineer openings on the horizon? I bring experience in {{skills}}, and one highlight from my work: {{top_highlight}}.
+      Would you have any Software Engineer openings on the horizon?{% if skills %} I bring experience in {{skills}}.{% endif %}{% if top_highlight %} One highlight from my work: {{top_highlight}}.{% endif %}
 
       {% if job_title %}I noticed the {{job_title}} role {% if job_id %}(Job ID {{job_id}}) {% endif %}and it lines up well with what I do.{% else %}Even a pointer to the right person to talk to would help.{% endif %} {{cta}}
 
@@ -66,7 +66,7 @@ templates:
     body: |
       {{greeting}}
 
-      {{company}} keeps coming up in conversations about teams doing interesting engineering work, so I wanted to ask whether you're hiring. I recently {{recent_internship}} and work day to day with {{skills}}.
+      {{company}} keeps coming up in conversations about teams doing interesting engineering work, so I wanted to ask whether you're hiring.{% if recent_internship %} I recently {{recent_internship}}.{% endif %}{% if skills %} I work day to day with {{skills}}.{% endif %}
 
       {% if job_url %}This posting looked relevant: {{job_url}}.{% else %}If you're open to it, I'd be glad to send my resume.{% endif %} {{cta}}
 
@@ -76,9 +76,9 @@ templates:
     body: |
       {{greeting}}
 
-      Quick note to ask if there are developer positions open at {{company}}. My background is in {{skills}}, and the project I'm most proud of is {{top_highlight}}.
+      Quick note to ask if there are developer positions open at {{company}}.{% if skills %} My background is in {{skills}}.{% endif %}{% if top_highlight %} The project I'm most proud of is {{top_highlight}}.{% endif %}
 
-      {% if job_title %}If the {{job_title}} role {% if job_id %}(Job ID {{job_id}}) {% endif %}is still being filled, I'd appreciate the chance to apply.{% endif %} Portfolio: {{portfolio}}.
+      {% if job_title %}If the {{job_title}} role {% if job_id %}(Job ID {{job_id}}) {% endif %}is still being filled, I'd appreciate the chance to apply.{% endif %}{% if portfolio %} Portfolio: {{portfolio}}.{% endif %}
 
       {{signature}}
   - id: job_opening_inquiry_09
@@ -86,7 +86,7 @@ templates:
     body: |
       {{greeting}}
 
-      I'd like to know whether {{company}} has Software Engineer roles open. To give you a sense of fit: I focus on {{skills}}, and {{recent_internship}}.
+      I'd like to know whether {{company}} has Software Engineer roles open.{% if skills %} To give you a sense of fit: I focus on {{skills}}.{% endif %}{% if recent_internship %} I {{recent_internship}}.{% endif %}
 
       {% if job_id %}If anything's open under Job ID {{job_id}}, count me interested.{% else %}If roles aren't posted yet, I'm happy to stay in touch.{% endif %} {{cta}}
 
@@ -96,7 +96,7 @@ templates:
     body: |
       {{greeting}}
 
-      Is the engineering team at {{company}} expanding this year? I ask because I've built a solid foundation in {{skills}} and would jump at the right opportunity. One thing worth mentioning: {{top_highlight}}.
+      Is the engineering team at {{company}} expanding this year?{% if skills %} I ask because I've built a solid foundation in {{skills}} and would jump at the right opportunity.{% endif %}{% if top_highlight %} One thing worth mentioning: {{top_highlight}}.{% endif %}
 
       {% if job_title %}The {{job_title}} listing {% if job_url %}({{job_url}}) {% endif %}stood out to me in particular.{% endif %} {{cta}}
 
@@ -106,9 +106,9 @@ templates:
     body: |
       {{greeting}}
 
-      Hoping to connect about any Software Engineer openings at {{company}}. My experience spans {{skills}}, and recently I {{recent_internship}}.
+      Hoping to connect about any Software Engineer openings at {{company}}.{% if skills %} My experience spans {{skills}}.{% endif %}{% if recent_internship %} Recently I {{recent_internship}}.{% endif %}
 
-      You'll find my work at {{github}}. {% if job_id %}If the role with Job ID {{job_id}} is active, I'd love to throw my hat in.{% else %}Let me know if there's a good time to talk.{% endif %}
+      {% if github %}You'll find my work at {{github}}. {% endif %}{% if job_id %}If the role with Job ID {{job_id}} is active, I'd love to throw my hat in.{% else %}Let me know if there's a good time to talk.{% endif %}
 
       {{signature}}
   - id: job_opening_inquiry_12
@@ -116,7 +116,7 @@ templates:
     body: |
       {{greeting}}
 
-      I'll keep this brief: I'm a Software Engineer interested in joining {{company}}, and I wanted to ask whether you're hiring. My core strengths are {{skills}}, and {{top_highlight}} is recent proof of that.
+      I'll keep this brief: I'm a Software Engineer interested in joining {{company}}, and I wanted to ask whether you're hiring.{% if skills %} My core strengths are {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} is recent proof of that.{% endif %}
 
       {% if job_title %}If the {{job_title}} position {% if job_id %}(Job ID {{job_id}}) {% endif %}is open, I'd be thrilled to apply.{% endif %} {{cta}}
 
@@ -126,7 +126,7 @@ templates:
     body: |
       {{greeting}}
 
-      Wanted to check in directly about engineering hiring at {{company}}. I work with {{skills}} and most recently {{recent_internship}}, so I think I could add value quickly.
+      Wanted to check in directly about engineering hiring at {{company}}.{% if skills %} I work with {{skills}}.{% endif %}{% if recent_internship %} I most recently {{recent_internship}}.{% endif %} I think I could add value quickly.
 
       {% if job_url %}Saw the listing at {{job_url}} and it fits well.{% else %}If you're not actively hiring, no worries, I'd just like to be on your radar.{% endif %} {{cta}}
 
@@ -136,9 +136,9 @@ templates:
     body: |
       {{greeting}}
 
-      Do you currently have openings for Software Engineers? I'd bring hands-on experience with {{skills}}, and a highlight from my recent work is {{top_highlight}}.
+      Do you currently have openings for Software Engineers?{% if skills %} I'd bring hands-on experience with {{skills}}.{% endif %}{% if top_highlight %} A highlight from my recent work is {{top_highlight}}.{% endif %}
 
-      {% if job_id %}If Job ID {{job_id}} is still live, please consider this my interest.{% else %}Glad to share more whenever it's useful.{% endif %} Links: {{linkedin}}, {{portfolio}}.
+      {% if job_id %}If Job ID {{job_id}} is still live, please consider this my interest.{% else %}Glad to share more whenever it's useful.{% endif %}{% if linkedin %} LinkedIn: {{linkedin}}.{% endif %}{% if portfolio %} Portfolio: {{portfolio}}.{% endif %}
 
       {{signature}}
   - id: job_opening_inquiry_15
@@ -146,7 +146,7 @@ templates:
     body: |
       {{greeting}}
 
-      The engineering culture at {{company}} is exactly what I'm looking for, so I wanted to ask whether you have SWE roles open. My toolkit includes {{skills}}, and I recently {{recent_internship}}.
+      The engineering culture at {{company}} is exactly what I'm looking for, so I wanted to ask whether you have SWE roles open.{% if skills %} My toolkit includes {{skills}}.{% endif %}{% if recent_internship %} I recently {{recent_internship}}.{% endif %}
 
       {% if job_title %}The {{job_title}} role {% if job_id %}(Job ID {{job_id}}) {% endif %}caught my eye in particular.{% endif %} {{cta}}
 
@@ -156,7 +156,7 @@ templates:
     body: |
       {{greeting}}
 
-      Are there developer openings I should know about at {{company}}? I've spent recent months deep in {{skills}}, and {{top_highlight}} is something I'd be happy to walk you through.
+      Are there developer openings I should know about at {{company}}?{% if skills %} I've spent recent months deep in {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} is something I'd be happy to walk you through.{% endif %}
 
       {% if job_url %}I'm referring to this posting: {{job_url}}{% if job_id %} (Job ID {{job_id}}){% endif %}.{% endif %} {{cta}}
 
@@ -166,7 +166,7 @@ templates:
     body: |
       {{greeting}}
 
-      Wanted to introduce myself and ask whether {{company}} is hiring engineers. Short version: I work in {{skills}}, recently {{recent_internship}}, and care a lot about shipping reliable software.
+      Wanted to introduce myself and ask whether {{company}} is hiring engineers.{% if skills %} I work in {{skills}}.{% endif %}{% if recent_internship %} I recently {{recent_internship}}.{% endif %} I care a lot about shipping reliable software.
 
       {% if job_id %}If the role under Job ID {{job_id}} is open, I'd welcome the chance to apply.{% else %}If there's a fit down the line, I'd love to stay connected.{% endif %} {{cta}}
 
@@ -176,9 +176,9 @@ templates:
     body: |
       {{greeting}}
 
-      Is there room on the engineering team at {{company}} for someone with my background? I focus on {{skills}}, and my proudest recent project is {{top_highlight}}.
+      Is there room on the engineering team at {{company}} for someone with my background?{% if skills %} I focus on {{skills}}.{% endif %}{% if top_highlight %} My proudest recent project is {{top_highlight}}.{% endif %}
 
-      {% if job_title %}If the {{job_title}} opening {% if job_url %}({{job_url}}) {% endif %}is still available, I'd love to learn more.{% endif %} You can reach my work at {{github}}.
+      {% if job_title %}If the {{job_title}} opening {% if job_url %}({{job_url}}) {% endif %}is still available, I'd love to learn more.{% endif %}{% if github %} You can reach my work at {{github}}.{% endif %}
 
       {{signature}}
   - id: job_opening_inquiry_19
@@ -186,7 +186,7 @@ templates:
     body: |
       {{greeting}}
 
-      I'd like to explore Software Engineer opportunities at {{company}}, if any exist. My experience covers {{skills}}, and recently I {{recent_internship}}.
+      I'd like to explore Software Engineer opportunities at {{company}}, if any exist.{% if skills %} My experience covers {{skills}}.{% endif %}{% if recent_internship %} Recently I {{recent_internship}}.{% endif %}
 
       {% if job_id %}If Job ID {{job_id}} is open, please consider me a candidate.{% else %}Even if nothing's open now, I'd appreciate hearing about future roles.{% endif %} {{cta}}
 
@@ -196,7 +196,7 @@ templates:
     body: |
       {{greeting}}
 
-      Reaching out to ask whether {{company}} has Software Engineer roles open. I've built real depth in {{skills}}, and {{top_highlight}} shows the kind of impact I aim for.
+      Reaching out to ask whether {{company}} has Software Engineer roles open.{% if skills %} I've built real depth in {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} shows the kind of impact I aim for.{% endif %}
 
       {% if job_title %}The {{job_title}} position {% if job_id %}(Job ID {{job_id}}) {% endif %}seems like a great match for what I do.{% else %}Happy to share my resume whenever it's helpful.{% endif %} {{cta}}
 

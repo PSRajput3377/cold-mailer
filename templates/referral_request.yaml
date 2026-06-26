@@ -6,9 +6,9 @@ templates:
     body: |
       {{greeting}}
 
-      I came across the {{role}} opening at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and noticed you work there. I'm {{candidate_name}}, and my background lines up closely with what the team is looking for, including {{top_highlight}}.
+      I came across the {{role}} opening at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and noticed you work there. I'm {{candidate_name}}, and my background lines up closely with what the team is looking for{% if top_highlight %}, including {{top_highlight}}{% endif %}.
 
-      Would you be open to referring me, or pointing me to the right person? Happy to send over anything that would help: {{linkedin}}.
+      Would you be open to referring me, or pointing me to the right person?{% if linkedin %} Happy to send over anything that would help: {{linkedin}}.{% endif %}
 
       {{signature}}
   - id: referral_request_02
@@ -16,7 +16,7 @@ templates:
     body: |
       {{greeting}}
 
-      I'm applying for the {{job_title}} position at {{company}} and saw that you're on the team. My recent work includes {{recent_internship}}, and I've spent a lot of time with {{skills}}.
+      I'm applying for the {{job_title}} position at {{company}} and saw that you're on the team.{% if recent_internship %} My recent work includes {{recent_internship}}.{% endif %}{% if skills %} I've spent a lot of time with {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -26,11 +26,11 @@ templates:
     body: |
       {{greeting}}
 
-      Reaching out because {{company}} has an opening for {{role}} {% if job_id %}(Job ID {{job_id}}) {% endif %}that fits my experience well. A few things that stand out from my background:
+      Reaching out because {{company}} has an opening for {{role}} {% if job_id %}(Job ID {{job_id}}) {% endif %}that fits my experience well.{% if resume_highlights %} A few things that stand out from my background:
 
-      {{resume_highlights}}
+      {{resume_highlights}}{% endif %}
 
-      If it feels right, I'd really appreciate a referral. The posting is here: {{job_url}}.
+      If it feels right, I'd really appreciate a referral.{% if job_url %} The posting is here: {{job_url}}.{% endif %}
 
       {{signature}}
   - id: referral_request_04
@@ -38,9 +38,9 @@ templates:
     body: |
       {{greeting}}
 
-      Your name came up when I was looking into the {{role}} team at {{company}}. I'm {{candidate_name}}; most recently I worked on {{recent_internship}}.
+      Your name came up when I was looking into the {{role}} team at {{company}}. I'm {{candidate_name}}.{% if recent_internship %} Most recently I worked on {{recent_internship}}.{% endif %}
 
-      Would a referral be something you'd consider? You can get a quick read on me here: {{github}}.
+      Would a referral be something you'd consider?{% if github %} You can get a quick read on me here: {{github}}.{% endif %}
 
       {{signature}}
   - id: referral_request_05
@@ -48,7 +48,7 @@ templates:
     body: |
       {{greeting}}
 
-      I've been following {{company}} for a while and the {{job_title}} role finally felt like the right fit. {{top_highlight}}
+      I've been following {{company}} for a while and the {{job_title}} role finally felt like the right fit.{% if top_highlight %} {{top_highlight}}{% endif %}
 
       {{cta}}
 
@@ -60,7 +60,7 @@ templates:
 
       Short version: I'm applying for {{role}} at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and would value a referral from someone on the inside.
 
-      My strengths are in {{skills}}, and {{top_highlight}}. If you'd like the full picture, my portfolio is at {{portfolio}}.
+      {% if skills %}My strengths are in {{skills}}, and {% endif %}{% if top_highlight %}{{top_highlight}}. {% endif %}{% if portfolio %}If you'd like the full picture, my portfolio is at {{portfolio}}.{% endif %}
 
       Either way, thanks for taking a look.
 
@@ -70,7 +70,7 @@ templates:
     body: |
       {{greeting}}
 
-      I noticed the {{job_title}} listing at {{company}} and that you're already there. I'm {{candidate_name}} and I think my experience maps well, especially {{recent_internship}}.
+      I noticed the {{job_title}} listing at {{company}} and that you're already there. I'm {{candidate_name}} and I think my experience maps well{% if recent_internship %}, especially {{recent_internship}}{% endif %}.
 
       Would you be willing to put in a referral for me?
 
@@ -82,7 +82,7 @@ templates:
 
       The {{role}} opening at {{company}} caught my eye, and seeing you on the team made me want to reach out directly.
 
-      A bit about me: {{top_highlight}} I've worked closely with {{skills}}. {{cta}}
+      {% if top_highlight %}A bit about me: {{top_highlight}}{% endif %}{% if skills %} I've worked closely with {{skills}}.{% endif %} {{cta}}
 
       {{signature}}
   - id: referral_request_09
@@ -90,11 +90,11 @@ templates:
     body: |
       {{greeting}}
 
-      I'm {{candidate_name}}, applying for {{job_title}} at {{company}}. Here's a snapshot of where I've spent my time:
+      I'm {{candidate_name}}, applying for {{job_title}} at {{company}}.{% if resume_highlights %} Here's a snapshot of where I've spent my time:
 
-      {{resume_highlights}}
+      {{resume_highlights}}{% endif %}
 
-      A referral would mean a lot. Posting link, in case it's useful: {{job_url}}.
+      A referral would mean a lot.{% if job_url %} Posting link, in case it's useful: {{job_url}}.{% endif %}
 
       {{signature}}
   - id: referral_request_10
@@ -102,7 +102,7 @@ templates:
     body: |
       {{greeting}}
 
-      Quick one: {{company}} is hiring for {{role}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and I'd love a referral if you're open to it. Most recently I did {{recent_internship}}.
+      Quick one: {{company}} is hiring for {{role}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and I'd love a referral if you're open to it.{% if recent_internship %} Most recently I did {{recent_internship}}.{% endif %}
 
       {{cta}}
 
@@ -114,7 +114,7 @@ templates:
 
       I'll keep this brief. I'm {{candidate_name}}, going after the {{job_title}} role at {{company}}, and your name came up as a good person to ask about a referral.
 
-      What I bring: {{skills}}, plus {{top_highlight}} You can find more at {{linkedin}}.
+      {% if skills %}What I bring: {{skills}}, {% endif %}{% if top_highlight %}plus {{top_highlight}} {% endif %}{% if linkedin %}You can find more at {{linkedin}}.{% endif %}
 
       {{signature}}
   - id: referral_request_12
@@ -122,9 +122,9 @@ templates:
     body: |
       {{greeting}}
 
-      Saw the {{role}} role open up at {{company}} and figured I'd reach out before applying cold. {{recent_internship}}
+      Saw the {{role}} role open up at {{company}} and figured I'd reach out before applying cold.{% if recent_internship %} {{recent_internship}}{% endif %}
 
-      If my background looks like a fit, would you refer me? More here: {{github}}.
+      If my background looks like a fit, would you refer me?{% if github %} More here: {{github}}.{% endif %}
 
       {{signature}}
   - id: referral_request_13
@@ -132,9 +132,9 @@ templates:
     body: |
       {{greeting}}
 
-      I'm exploring the {{role}} position at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and noticed we'd be a good match in terms of skills, mainly {{skills}}.
+      I'm exploring the {{role}} position at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and noticed we'd be a good match in terms of skills{% if skills %}, mainly {{skills}}{% endif %}.
 
-      {{top_highlight}}
+      {% if top_highlight %}{{top_highlight}}{% endif %}
 
       {{cta}}
 
@@ -144,9 +144,9 @@ templates:
     body: |
       {{greeting}}
 
-      I'm reaching out about the {{job_title}} role at {{company}}. I'm {{candidate_name}}, and I've built up real experience in {{skills}} over the last few years.
+      I'm reaching out about the {{job_title}} role at {{company}}. I'm {{candidate_name}}.{% if skills %} I've built up real experience in {{skills}} over the last few years.{% endif %}
 
-      Would you consider referring me? Glad to share whatever helps you decide: {{portfolio}}.
+      Would you consider referring me?{% if portfolio %} Glad to share whatever helps you decide: {{portfolio}}.{% endif %}
 
       {{signature}}
   - id: referral_request_15
@@ -154,7 +154,7 @@ templates:
     body: |
       {{greeting}}
 
-      {{top_highlight}} That's a big part of why the {{role}} opening at {{company}} stood out to me.
+      {% if top_highlight %}{{top_highlight}} That's a big part of why the {{role}} opening at {{company}} stood out to me.{% else %}The {{role}} opening at {{company}} stood out to me.{% endif %}
 
       Seeing that you're on the team, I wanted to ask directly: would a referral be possible? {{cta}}
 
@@ -166,9 +166,9 @@ templates:
 
       I'm applying for {{job_title}} at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and a referral from someone who knows the place would go a long way.
 
-      Recent work: {{recent_internship}}. A few more highlights below.
+      {% if recent_internship %}Recent work: {{recent_internship}}.{% endif %}{% if resume_highlights %} A few more highlights below.
 
-      {{resume_highlights}}
+      {{resume_highlights}}{% endif %}
 
       {{signature}}
   - id: referral_request_17
@@ -178,7 +178,7 @@ templates:
 
       I'm {{candidate_name}}. The {{role}} team at {{company}} is doing work I'd genuinely like to be part of, and I'm putting in an application.
 
-      Would you be open to referring me? My profile: {{linkedin}}.
+      Would you be open to referring me?{% if linkedin %} My profile: {{linkedin}}.{% endif %}
 
       {{signature}}
   - id: referral_request_18
@@ -186,7 +186,7 @@ templates:
     body: |
       {{greeting}}
 
-      Long story short, I'm chasing the {{role}} opening at {{company}} and could use a referral. My experience centers on {{skills}}, and {{top_highlight}}
+      Long story short, I'm chasing the {{role}} opening at {{company}} and could use a referral.{% if skills %} My experience centers on {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}}{% endif %}
 
       {{cta}}
 
@@ -196,11 +196,11 @@ templates:
     body: |
       {{greeting}}
 
-      I noticed {{company}} is hiring a {{job_title}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and that you'd be a great person to ask. Here's what I've been up to:
+      I noticed {{company}} is hiring a {{job_title}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and that you'd be a great person to ask.{% if resume_highlights %} Here's what I've been up to:
 
-      {{resume_highlights}}
+      {{resume_highlights}}{% endif %}
 
-      If you think I'd fit, a referral would help a lot. Posting: {{job_url}}.
+      If you think I'd fit, a referral would help a lot.{% if job_url %} Posting: {{job_url}}.{% endif %}
 
       {{signature}}
   - id: referral_request_20
@@ -208,8 +208,8 @@ templates:
     body: |
       {{greeting}}
 
-      I'm {{candidate_name}}, applying for {{role}} at {{company}}. {{recent_internship}}, and I've worked heavily with {{skills}}.
+      I'm {{candidate_name}}, applying for {{role}} at {{company}}.{% if recent_internship %} {{recent_internship}},{% endif %}{% if skills %} and I've worked heavily with {{skills}}.{% endif %}
 
-      Open to referring me, or sending me toward the right contact? You can check out my work at {{github}}.
+      Open to referring me, or sending me toward the right contact?{% if github %} You can check out my work at {{github}}.{% endif %}
 
       {{signature}}

@@ -14,5 +14,6 @@ pypdf>=4.0.0             # extract text + highlights from the resume PDF
 # boto3>=1.34.0          # AWS SES provider
 # msal>=1.28.0           # Microsoft Graph OAuth
 
-# --- Optional AI personalization (future / Step "AI-generated emails") ---
-# anthropic>=0.39.0      # AI-generated personalized emails using Claude
+# --- Optional AI personalization (AI-generated emails via Claude) ---
+# Only needed when config.yaml `ai.enabled: true`.
+anthropic>=0.40.0        # AI-generated personalized emails using Claude

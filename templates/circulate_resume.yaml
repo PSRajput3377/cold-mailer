@@ -8,7 +8,7 @@ templates:
 
       I saw {{company}} is hiring for {{role}} and figured I'd reach out directly. Would you be open to forwarding my resume to whoever owns that hire? I've attached it here.
 
-      Short version: {{top_highlight}}{% if skills %}, with hands-on work in {{skills}}{% endif %}.
+      {% if top_highlight %}Short version: {{top_highlight}}{% if skills %}, with hands-on work in {{skills}}{% endif %}.{% elif skills %}Short version: hands-on work in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -34,7 +34,7 @@ templates:
 
       Reaching out because {{company}} has an opening for {{role}} that lines up well with my background. Could you circulate my resume to the right hiring manager? Attached for convenience.
 
-      Quick highlight: {{top_highlight}}.
+      {% if top_highlight %}Quick highlight: {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -60,7 +60,7 @@ templates:
 
       Hoping you can help me get in front of the right people. {{company}} is hiring for {{role}}{% if job_id %} (req {{job_id}}){% endif %}, and I'd appreciate you forwarding my attached resume to whoever's leading that search.
 
-      {{top_highlight}} — happy to share more if useful.
+      {% if top_highlight %}{{top_highlight}} — happy to share more if useful.{% endif %}
 
       {{cta}}
 
@@ -86,7 +86,7 @@ templates:
 
       I'm targeting the {{role}} opening at {{company}} and would really value an internal hand-off. If you can forward the attached resume to the hiring manager, that'd mean a lot.
 
-      What I bring: {% if skills %}{{skills}}{% else %}{{top_highlight}}{% endif %}.
+      {% if skills or top_highlight %}What I bring: {% if skills %}{{skills}}{% else %}{{top_highlight}}{% endif %}.{% endif %}
 
       {{cta}}
 
@@ -99,7 +99,7 @@ templates:
 
       Hate to add to your inbox, so I'll keep it to one ask — could you circulate my resume internally for the {{role}} position at {{company}}? It's attached.
 
-      {{top_highlight}}{% if skills %}, plus depth in {{skills}}{% endif %}.
+      {% if top_highlight %}{{top_highlight}}{% if skills %}, plus depth in {{skills}}{% endif %}.{% endif %}
 
       {{cta}}
 
@@ -125,7 +125,7 @@ templates:
 
       I came across the {{role}} opening at {{company}} and think I'd be a strong fit. Would you be willing to forward my attached resume to the right person internally?
 
-      {% if recent_internship %}Recent experience: {{recent_internship}}. {% endif %}{{top_highlight}}.
+      {% if recent_internship %}Recent experience: {{recent_internship}}. {% endif %}{% if top_highlight %}{{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -151,7 +151,7 @@ templates:
 
       I'd be grateful for your help getting noticed for the {{role}} role at {{company}}. If you could pass my resume to the hiring team, I'd owe you one. Attached here.
 
-      {{top_highlight}}.
+      {% if top_highlight %}{{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -190,7 +190,7 @@ templates:
 
       Attaching my resume in case you can get it to the {{role}} hiring team at {{company}}. Totally understand if the timing's off.
 
-      In a sentence: {{top_highlight}}.
+      {% if top_highlight %}In a sentence: {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -216,7 +216,7 @@ templates:
 
       Could I ask you to circulate my resume internally for {{role}}? I think I'd add real value, and an inside forward would help it get seen. Attached.
 
-      {% if skills %}Sharpest in {{skills}}; {% endif %}{{top_highlight}}.
+      {% if skills %}Sharpest in {{skills}}; {% endif %}{% if top_highlight %}{{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -229,7 +229,7 @@ templates:
 
       You'd be doing me a real solid by forwarding my resume to the {{role}} hiring manager at {{company}}. It's attached and ready to share.
 
-      {% if recent_internship %}Recent stint: {{recent_internship}}. {% endif %}{{top_highlight}}.
+      {% if recent_internship %}Recent stint: {{recent_internship}}. {% endif %}{% if top_highlight %}{{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -242,7 +242,7 @@ templates:
 
       Quick request: if you know who's running the {{role}} search at {{company}}, would you forward my attached resume to them?
 
-      {% if github %}Code samples live at {{github}}.{% endif %} {{top_highlight}}.
+      {% if github %}Code samples live at {{github}}.{% endif %}{% if top_highlight %} {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -255,7 +255,7 @@ templates:
 
       I'm applying for {{role}} at {{company}} and would love to get past the application pile. If you could pass my resume to the hiring manager, I'd appreciate it more than I can say. Attached.
 
-      {% if skills %}Core skills: {{skills}}.{% else %}{{top_highlight}}.{% endif %}
+      {% if skills %}Core skills: {{skills}}.{% elif top_highlight %}{{top_highlight}}.{% endif %}
 
       {{cta}}
 

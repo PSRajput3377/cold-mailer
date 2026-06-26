@@ -6,7 +6,7 @@ templates:
     body: |
       {{greeting}}
 
-      I've been following {{company}} for a while and would love to join your engineering team as a Software Engineer. Recently I {{top_highlight}}, and I work mostly across {{skills}}.
+      I've been following {{company}} for a while and would love to join your engineering team as a Software Engineer.{% if top_highlight %} Recently I {{top_highlight}}.{% endif %}{% if skills %} I work mostly across {{skills}}.{% endif %}
 
       If there's room for someone like me, I'd be glad to share more. {{cta}}
 
@@ -19,7 +19,7 @@ templates:
 
       Quick note from a builder: {{company}} is solving problems I genuinely care about, and I'd like to contribute as a Software Engineer.
 
-      A bit of proof I can pull my weight: {{recent_internship}}. My day-to-day stack is {{skills}}. {% if job_url %}I saw the opening here: {{job_url}}.{% endif %}
+      {% if recent_internship %}A bit of proof I can pull my weight: {{recent_internship}}.{% endif %}{% if skills %} My day-to-day stack is {{skills}}.{% endif %} {% if job_url %}I saw the opening here: {{job_url}}.{% endif %}
 
       {{cta}}
 
@@ -32,7 +32,7 @@ templates:
 
       Reaching out because I want to work on hard engineering problems, and {{company}} clearly does. I'd like to be considered for a Software Engineer role.
 
-      Most relevant thing about me: {{top_highlight}}. You can skim my work at {{github}}.
+      {% if top_highlight %}Most relevant thing about me: {{top_highlight}}.{% endif %}{% if github %} You can skim my work at {{github}}.{% endif %}
 
       {{signature}}
 
@@ -43,7 +43,7 @@ templates:
 
       Short version: strong engineer, ships quickly, comfortable owning features end to end. I'd love a {{role}} seat on your team.
 
-      {{recent_internship}} taught me how to move fast without breaking things. Stack: {{skills}}. Portfolio: {{portfolio}}.
+      {% if recent_internship %}{{recent_internship}} taught me how to move fast without breaking things.{% endif %}{% if skills %} Stack: {{skills}}.{% endif %}{% if portfolio %} Portfolio: {{portfolio}}.{% endif %}
 
       Happy to do a quick call whenever works. {{cta}}
 
@@ -56,7 +56,7 @@ templates:
 
       Your team's work caught my attention, and I'd like to throw my hat in for a Software Engineer position.
 
-      The highlight I'm proudest of: {{top_highlight}}. I build with {{skills}} and keep code clean.{% if job_id %} Referencing req {{job_id}}.{% endif %}
+      {% if top_highlight %}The highlight I'm proudest of: {{top_highlight}}.{% endif %}{% if skills %} I build with {{skills}} and keep code clean.{% endif %}{% if job_id %} Referencing req {{job_id}}.{% endif %}
 
       {{signature}}
 
@@ -67,7 +67,7 @@ templates:
 
       Founder-to-engineer: I love early, scrappy teams and I want to help {{company}} ship faster. Looking for a Software Engineer role.
 
-      I recently {{top_highlight}}, and I'm fluent in {{skills}}. No long ramp-up needed.
+      {% if top_highlight %}I recently {{top_highlight}}.{% endif %}{% if skills %} I'm fluent in {{skills}}.{% endif %} No long ramp-up needed.
 
       {{cta}}
 
@@ -80,9 +80,9 @@ templates:
 
       I'd like to be considered for a {{role}} opening at {{company}}. A few quick proof points below.
 
-      {{resume_highlights}}
+      {% if resume_highlights %}{{resume_highlights}}{% endif %}
 
-      Core skills: {{skills}}. Code samples live at {{github}}.{% if job_url %} The listing I'm referencing: {{job_url}}.{% endif %}
+      {% if skills %}Core skills: {{skills}}.{% endif %}{% if github %} Code samples live at {{github}}.{% endif %}{% if job_url %} The listing I'm referencing: {{job_url}}.{% endif %}
 
       {{signature}}
 
@@ -93,7 +93,7 @@ templates:
 
       I keep coming back to what {{company}} is building, so I figured I'd just ask: are you hiring Software Engineers?
 
-      Recent work: {{recent_internship}}. I'm strongest in {{skills}}.
+      {% if recent_internship %}Recent work: {{recent_internship}}.{% endif %}{% if skills %} I'm strongest in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -106,7 +106,7 @@ templates:
 
       I'm a software engineer who likes shipping real things, and {{company}} is on a short list of teams I'd love to join.
 
-      One thing that sums me up: {{top_highlight}}. My toolkit is {{skills}}, and there's more at {{portfolio}}.
+      {% if top_highlight %}One thing that sums me up: {{top_highlight}}.{% endif %}{% if skills %} My toolkit is {{skills}}.{% endif %}{% if portfolio %} There's more at {{portfolio}}.{% endif %}
 
       {{signature}}
 
@@ -117,7 +117,7 @@ templates:
 
       Not going to bury the lead: I'd love a Software Engineer role at {{company}}.
 
-      Why me, briefly: {{recent_internship}}, and I work across {{skills}}. {% if job_id %}This is for req {{job_id}}.{% endif %} Resume and links ready whenever you are.
+      {% if recent_internship %}Why me, briefly: {{recent_internship}}.{% endif %}{% if skills %} I work across {{skills}}.{% endif %} {% if job_id %}This is for req {{job_id}}.{% endif %} Resume and links ready whenever you are.
 
       {{cta}}
 
@@ -130,7 +130,7 @@ templates:
 
       A few of your products genuinely impressed me, and I'd like to help build the next ones as a Software Engineer.
 
-      The work I'd point to first: {{top_highlight}}. Skills: {{skills}}. GitHub: {{github}}.
+      {% if top_highlight %}The work I'd point to first: {{top_highlight}}.{% endif %}{% if skills %} Skills: {{skills}}.{% endif %}{% if github %} GitHub: {{github}}.{% endif %}
 
       {{signature}}
 
@@ -141,9 +141,9 @@ templates:
 
       Straight to it: I want to engineer at {{company}}, and I think I'd add value fast.
 
-      {{resume_highlights}}
+      {% if resume_highlights %}{{resume_highlights}}{% endif %}
 
-      Comfortable across {{skills}}.{% if job_url %} Applying against {{job_url}}.{% endif %} {{cta}}
+      {% if skills %}Comfortable across {{skills}}.{% endif %}{% if job_url %} Applying against {{job_url}}.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -154,7 +154,7 @@ templates:
 
       Saw you might be growing the team and wanted to raise my hand for a {{role}} spot.
 
-      Quick credibility: {{recent_internship}}. I primarily build with {{skills}}, and you can see how I think at {{portfolio}}.
+      {% if recent_internship %}Quick credibility: {{recent_internship}}.{% endif %}{% if skills %} I primarily build with {{skills}}.{% endif %}{% if portfolio %} You can see how I think at {{portfolio}}.{% endif %}
 
       {{signature}}
 
@@ -165,7 +165,7 @@ templates:
 
       I'm an engineer who'd rather build than talk, so here's the short pitch: I want to join {{company}} as a Software Engineer.
 
-      Proudest recent win: {{top_highlight}}. Stack: {{skills}}.
+      {% if top_highlight %}Proudest recent win: {{top_highlight}}.{% endif %}{% if skills %} Stack: {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -178,7 +178,7 @@ templates:
 
       I've spent real time understanding what {{company}} is building, and I'd love to contribute as a Software Engineer.
 
-      What I bring: {{top_highlight}}, plus solid fundamentals in {{skills}}. More context at {{github}}.{% if job_id %} (Req {{job_id}}.){% endif %}
+      {% if top_highlight %}What I bring: {{top_highlight}}.{% endif %}{% if skills %} Solid fundamentals in {{skills}}.{% endif %}{% if github %} More context at {{github}}.{% endif %}{% if job_id %} (Req {{job_id}}.){% endif %}
 
       {{signature}}
 
@@ -189,7 +189,7 @@ templates:
 
       I'll keep this tight: I'm looking for a {{role}} role and {{company}} is exactly the kind of team I want to join.
 
-      {{recent_internship}}, and I'm hands-on with {{skills}}.
+      {% if recent_internship %}{{recent_internship}}.{% endif %}{% if skills %} I'm hands-on with {{skills}}.{% endif %}
 
       Would 15 minutes work to see if there's a fit? {{cta}}
 
@@ -202,7 +202,7 @@ templates:
 
       Early-stage energy is my favorite kind of energy, which is why I'm writing to {{company}} about a Software Engineer role.
 
-      Latest thing I shipped: {{top_highlight}}. I move fast in {{skills}}. Work samples: {{portfolio}}.
+      {% if top_highlight %}Latest thing I shipped: {{top_highlight}}.{% endif %}{% if skills %} I move fast in {{skills}}.{% endif %}{% if portfolio %} Work samples: {{portfolio}}.{% endif %}
 
       {{cta}}
 
@@ -215,9 +215,9 @@ templates:
 
       I want to help {{company}} build, and I think a {{role}} seat is where I'd do my best work.
 
-      Here's the relevant background: {{resume_highlights}}
+      {% if resume_highlights %}Here's the relevant background: {{resume_highlights}}{% endif %}
 
-      Strongest in {{skills}}.{% if job_url %} I'd be applying to {{job_url}}.{% endif %}
+      {% if skills %}Strongest in {{skills}}.{% endif %}{% if job_url %} I'd be applying to {{job_url}}.{% endif %}
 
       {{signature}}
 
@@ -228,7 +228,7 @@ templates:
 
       Reaching out directly because cold applications get lost: I'd love to engineer at {{company}}.
 
-      One line on me: {{top_highlight}}. Day-to-day stack is {{skills}}, and my code is at {{github}}.
+      {% if top_highlight %}One line on me: {{top_highlight}}.{% endif %}{% if skills %} Day-to-day stack is {{skills}}.{% endif %}{% if github %} My code is at {{github}}.{% endif %}
 
       {{cta}}
 
@@ -241,6 +241,6 @@ templates:
 
       I'd be genuinely excited to write software at {{company}}, so I wanted to introduce myself for any {{role}} openings.
 
-      {{recent_internship}} sharpened how I build, and I'm confident across {{skills}}.{% if job_id %} For reference, req {{job_id}}.{% endif %} More at {{portfolio}}.
+      {% if recent_internship %}{{recent_internship}} sharpened how I build.{% endif %}{% if skills %} I'm confident across {{skills}}.{% endif %}{% if job_id %} For reference, req {{job_id}}.{% endif %}{% if portfolio %} More at {{portfolio}}.{% endif %}
 
       {{signature}}

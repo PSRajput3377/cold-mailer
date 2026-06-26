@@ -6,7 +6,7 @@ templates:
     body: |
       {{greeting}}
 
-      I applied for the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} a little while back, and I'm still very keen on it. My work on {{top_highlight}} feels closely aligned with what the team is building.
+      I applied for the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} a little while back, and I'm still very keen on it.{% if top_highlight %} My work on {{top_highlight}} feels closely aligned with what the team is building.{% endif %}
 
       {{cta}}
 
@@ -16,7 +16,7 @@ templates:
     body: |
       {{greeting}}
 
-      Quick note to flag that my interest in the {{job_title}} position{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} hasn't faded. I think my background in {{skills}} maps well to the role.
+      Quick note to flag that my interest in the {{job_title}} position{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} hasn't faded.{% if skills %} I think my background in {{skills}} maps well to the role.{% endif %}
 
       {{cta}}
 
@@ -26,7 +26,7 @@ templates:
     body: |
       {{greeting}}
 
-      I submitted my application for the {{job_title}} role at {{company}} recently and wanted to reaffirm how much I'd like to contribute there. {{top_highlight}} is the kind of work I do best.
+      I submitted my application for the {{job_title}} role at {{company}} recently and wanted to reaffirm how much I'd like to contribute there.{% if top_highlight %} {{top_highlight}} is the kind of work I do best.{% endif %}
 
       {{cta}}
 
@@ -36,7 +36,7 @@ templates:
     body: |
       {{greeting}}
 
-      Following up on my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. The role is a strong match for my experience with {{skills}}, and I'd be glad to take the next step.
+      Following up on my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}.{% if skills %} The role is a strong match for my experience with {{skills}}.{% endif %} I'd be glad to take the next step.
 
       {{cta}}
 
@@ -46,7 +46,7 @@ templates:
     body: |
       {{greeting}}
 
-      A short follow-up on the {{job_title}} application I sent to {{company}}. I remain genuinely excited about it, especially given my experience with {{top_highlight}}.
+      A short follow-up on the {{job_title}} application I sent to {{company}}. I remain genuinely excited about it{% if top_highlight %}, especially given my experience with {{top_highlight}}{% endif %}.
 
       {{cta}}
 
@@ -56,7 +56,7 @@ templates:
     body: |
       {{greeting}}
 
-      I wanted to make sure my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} landed. I'm still very interested, and my work on {{top_highlight}} speaks to the fit.
+      I wanted to make sure my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} landed. I'm still very interested.{% if top_highlight %} My work on {{top_highlight}} speaks to the fit.{% endif %}
 
       {{cta}}
 
@@ -66,7 +66,7 @@ templates:
     body: |
       {{greeting}}
 
-      Touching base on my {{job_title}} application at {{company}}. Nothing has changed on my end — I'd love to be considered, and my strengths in {{skills}} are a close match.
+      Touching base on my {{job_title}} application at {{company}}. Nothing has changed on my end — I'd love to be considered.{% if skills %} My strengths in {{skills}} are a close match.{% endif %}
 
       {{cta}}
 
@@ -76,7 +76,7 @@ templates:
     body: |
       {{greeting}}
 
-      Hoping to get a sense of where things stand with the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is directly relevant to what you're hiring for, and I'm eager to help.
+      Hoping to get a sense of where things stand with the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {% if top_highlight %}{{top_highlight}} is directly relevant to what you're hiring for, and {% endif %}I'm eager to help.
 
       {{cta}}
 
@@ -86,7 +86,7 @@ templates:
     body: |
       {{greeting}}
 
-      Following up on the application I sent for {{job_title}} at {{company}}. I'm still very interested and confident my background in {{skills}} would add value to the team.
+      Following up on the application I sent for {{job_title}} at {{company}}. I'm still very interested{% if skills %} and confident my background in {{skills}} would add value to the team{% endif %}.
 
       {{cta}}
 
@@ -96,7 +96,7 @@ templates:
     body: |
       {{greeting}}
 
-      Just flagging my continued interest in the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is something I'm proud of and think relates well here.
+      Just flagging my continued interest in the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}.{% if top_highlight %} {{top_highlight}} is something I'm proud of and think relates well here.{% endif %}
 
       {{cta}}
 
@@ -106,7 +106,7 @@ templates:
     body: |
       {{greeting}}
 
-      I applied for {{job_title}} at {{company}} not long ago and wanted to confirm I'm still keen. My experience with {{skills}} lines up nicely with the role.
+      I applied for {{job_title}} at {{company}} not long ago and wanted to confirm I'm still keen.{% if skills %} My experience with {{skills}} lines up nicely with the role.{% endif %}
 
       {{cta}}
 
@@ -116,7 +116,7 @@ templates:
     body: |
       {{greeting}}
 
-      Reaching out again about the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. My interest is unchanged, and {{top_highlight}} is a good example of what I'd bring.
+      Reaching out again about the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. My interest is unchanged.{% if top_highlight %} {{top_highlight}} is a good example of what I'd bring.{% endif %}
 
       {{cta}}
 
@@ -126,7 +126,7 @@ templates:
     body: |
       {{greeting}}
 
-      A brief follow-up on my {{job_title}} application. {{company}} is exactly where I'd like to do my next stretch of work, and my background in {{skills}} fits the brief.
+      A brief follow-up on my {{job_title}} application. {{company}} is exactly where I'd like to do my next stretch of work{% if skills %}, and my background in {{skills}} fits the brief{% endif %}.
 
       {{cta}}
 
@@ -136,7 +136,7 @@ templates:
     body: |
       {{greeting}}
 
-      Checking in on my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I'm still very interested, and {{top_highlight}} reflects the kind of impact I aim for.
+      Checking in on my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I'm still very interested.{% if top_highlight %} {{top_highlight}} reflects the kind of impact I aim for.{% endif %}
 
       {{cta}}
 
@@ -146,7 +146,7 @@ templates:
     body: |
       {{greeting}}
 
-      Writing to reaffirm my interest in the {{job_title}} position at {{company}}. My hands-on experience with {{skills}} feels like a natural match for the team.
+      Writing to reaffirm my interest in the {{job_title}} position at {{company}}.{% if skills %} My hands-on experience with {{skills}} feels like a natural match for the team.{% endif %}
 
       {{cta}}
 
@@ -156,7 +156,7 @@ templates:
     body: |
       {{greeting}}
 
-      Following up on the {{job_title}} application I submitted{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I'd still very much welcome the chance, and {{top_highlight}} shows where I can contribute.
+      Following up on the {{job_title}} application I submitted{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I'd still very much welcome the chance.{% if top_highlight %} {{top_highlight}} shows where I can contribute.{% endif %}
 
       {{cta}}
 
@@ -166,7 +166,7 @@ templates:
     body: |
       {{greeting}}
 
-      Wanted to stay on your radar regarding the {{job_title}} role at {{company}}. My interest is firm, and my strengths in {{skills}} match what the role calls for.
+      Wanted to stay on your radar regarding the {{job_title}} role at {{company}}. My interest is firm.{% if skills %} My strengths in {{skills}} match what the role calls for.{% endif %}
 
       {{cta}}
 
@@ -176,7 +176,7 @@ templates:
     body: |
       {{greeting}}
 
-      Following up on my {{job_title}} application{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I remain enthusiastic about the opportunity, with {{top_highlight}} as a clear point of fit.
+      Following up on my {{job_title}} application{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I remain enthusiastic about the opportunity{% if top_highlight %}, with {{top_highlight}} as a clear point of fit{% endif %}.
 
       {{cta}}
 
@@ -186,7 +186,7 @@ templates:
     body: |
       {{greeting}}
 
-      Hoping for a quick update on the {{job_title}} role at {{company}}. I'm still very interested, and my experience with {{skills}} would let me ramp up fast.
+      Hoping for a quick update on the {{job_title}} role at {{company}}. I'm still very interested.{% if skills %} My experience with {{skills}} would let me ramp up fast.{% endif %}
 
       {{cta}}
 
@@ -196,7 +196,7 @@ templates:
     body: |
       {{greeting}}
 
-      One more note to confirm my interest in the {{job_title}} position{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is representative of the work I'd love to keep doing with your team.
+      One more note to confirm my interest in the {{job_title}} position{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}.{% if top_highlight %} {{top_highlight}} is representative of the work I'd love to keep doing with your team.{% endif %}
 
       {{cta}}
 

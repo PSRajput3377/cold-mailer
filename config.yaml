@@ -13,8 +13,8 @@ sender:
   email: "you@gmail.com"
   signature: |
     Best,
-    Your Name
-    {{phone}} · {{portfolio}}
+    {{candidate_name}}
+    {{phone}} · {{linkedin}} · {{github}}
   phone: "+1-000-000-0000"
 
 # --- Active email provider --------------------------------------------------
@@ -56,13 +56,13 @@ providers:
 verification:
   enabled: true
   # Strategy: "smtp" (free MX/RCPT probe) | "api" (third-party) | "none"
-  strategy: "smtp"
+  strategy: "none"   # use "smtp" later for deliverability checks (slower)
   # When strategy == "api", configure one of the supported services.
   api:
     service: "abstract"          # abstract | hunter | neverbounce
     api_key: "${EMAIL_VERIFY_API_KEY}"
   # Treat "unknown"/"catch-all" results as valid (true) or skip them (false).
-  accept_risky: false
+  accept_risky: true   # needed when strategy is "none" or for catch-all domains
 
 # --- Rate limiting & retries -----------------------------------------------
 rate_limit:

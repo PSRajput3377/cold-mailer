@@ -8,7 +8,7 @@ templates:
 
       It was great connecting with you about the {{role}} role at {{company}}. After our conversation, I'm even more excited about the opportunity.
 
-      My background in {{skills}} lines up well with what you described, and {{top_highlight}} is something I'd love to bring to the team.
+      {% if skills %}My background in {{skills}} lines up well with what you described.{% endif %}{% if top_highlight %} {{top_highlight}} is something I'd love to bring to the team.{% endif %}
 
       {{cta}}
 
@@ -21,7 +21,7 @@ templates:
 
       Thanks again for taking the time to speak with me about {{job_title}} at {{company}}. I've been thinking about what we discussed and wanted to stay in touch.
 
-      Given my experience with {{skills}}, I think I could add real value here. {{top_highlight}} in particular felt relevant to the work you outlined.
+      {% if skills %}Given my experience with {{skills}}, I think I could add real value here.{% endif %}{% if top_highlight %} {{top_highlight}} in particular felt relevant to the work you outlined.{% endif %}
       {% if job_id %}For reference, the role we discussed was {{job_id}}.{% endif %}
 
       {{cta}}
@@ -35,7 +35,7 @@ templates:
 
       Following up after our call about the {{role}} opening. I appreciated you walking me through the team and what success looks like there.
 
-      A quick reminder of where I fit: {{top_highlight}}, plus solid hands-on work in {{skills}}.
+      {% if top_highlight %}A quick reminder of where I fit: {{top_highlight}}.{% endif %}{% if skills %} I also bring solid hands-on work in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -48,7 +48,7 @@ templates:
 
       Good speaking with you the other day about {{job_title}}. I wanted to confirm that I'm genuinely interested and ready to move forward whenever the timing works.
 
-      My strengths in {{skills}} map closely to the role, and {{top_highlight}} is the kind of result I'd aim to repeat at {{company}}.
+      {% if skills %}My strengths in {{skills}} map closely to the role.{% endif %}{% if top_highlight %} {{top_highlight}} is the kind of result I'd aim to repeat at {{company}}.{% endif %}
 
       {{cta}}
 
@@ -61,7 +61,7 @@ templates:
 
       Thanks for connecting on LinkedIn and for the helpful context on the {{role}} position at {{company}}.
 
-      Since we spoke, I pulled together a couple of examples of my work with {{skills}}. {{top_highlight}} stands out as a good match for what you're looking for.
+      {% if skills %}Since we spoke, I pulled together a couple of examples of my work with {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} stands out as a good match for what you're looking for.{% endif %}
 
       {{cta}}
 
@@ -74,7 +74,7 @@ templates:
 
       Really enjoyed our conversation at the event. The {{role}} opportunity at {{company}} stuck with me, so I wanted to follow up properly.
 
-      Short version of my fit: {{top_highlight}}, backed by strong experience in {{skills}}.
+      {% if top_highlight %}Short version of my fit: {{top_highlight}}.{% endif %}{% if skills %} It's backed by strong experience in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -87,7 +87,7 @@ templates:
 
       Circling back after our chat about {{job_title}}. I know things get busy, so just a quick note to keep the conversation going.
 
-      I'm confident my work in {{skills}} fits the role well, and {{top_highlight}} speaks to the impact I could have at {{company}}.
+      {% if skills %}I'm confident my work in {{skills}} fits the role well.{% endif %}{% if top_highlight %} {{top_highlight}} speaks to the impact I could have at {{company}}.{% endif %}
       {% if job_url %}Here's the posting we referenced: {{job_url}}{% endif %}
 
       {{cta}}
@@ -101,7 +101,7 @@ templates:
 
       I've kept thinking about our discussion on the {{role}} opening at {{company}}, and it's exactly the kind of work I'm looking to do next.
 
-      My background in {{skills}} is a close fit, and {{top_highlight}} is a concrete example of what I'd bring.
+      {% if skills %}My background in {{skills}} is a close fit.{% endif %}{% if top_highlight %} {{top_highlight}} is a concrete example of what I'd bring.{% endif %}
 
       {{cta}}
 
@@ -114,7 +114,7 @@ templates:
 
       Thanks again for the call about {{job_title}} at {{company}}. I wanted to check in on next steps and let you know I'm keen to keep things moving.
 
-      To recap my fit: deep experience in {{skills}} and {{top_highlight}} as a recent highlight.
+      {% if skills %}To recap my fit: deep experience in {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} is a recent highlight.{% endif %}
 
       {{cta}}
 
@@ -127,7 +127,7 @@ templates:
 
       I appreciated you sharing more about the {{role}} role and the team at {{company}} when we spoke. It confirmed this is something I'd be excited to pursue.
 
-      My skill set in {{skills}} aligns well, and {{top_highlight}} is the sort of contribution I'd hope to make.
+      {% if skills %}My skill set in {{skills}} aligns well.{% endif %}{% if top_highlight %} {{top_highlight}} is the sort of contribution I'd hope to make.{% endif %}
 
       {{cta}}
 
@@ -140,7 +140,7 @@ templates:
 
       As promised, following up after our chat about {{job_title}}. Thanks for the time and the helpful insight into what the team needs.
 
-      I'll keep it brief: {{top_highlight}}, and a strong foundation in {{skills}} that fits the role at {{company}}.
+      {% if top_highlight %}I'll keep it brief: {{top_highlight}}.{% endif %}{% if skills %} I bring a strong foundation in {{skills}} that fits the role at {{company}}.{% endif %}
       {% if job_id %}The req we discussed was {{job_id}}.{% endif %}
 
       {{cta}}
@@ -154,7 +154,7 @@ templates:
 
       A quick follow-up to our conversation about the {{role}} position. The more I learn about {{company}}, the more excited I am about the fit.
 
-      My experience with {{skills}} maps directly to the work, and {{top_highlight}} shows the kind of results I can deliver.
+      {% if skills %}My experience with {{skills}} maps directly to the work.{% endif %}{% if top_highlight %} {{top_highlight}} shows the kind of results I can deliver.{% endif %}
 
       {{cta}}
 
@@ -167,7 +167,7 @@ templates:
 
       Great to connect last week about {{job_title}} at {{company}}. I wanted to follow up while it's fresh and reaffirm my interest.
 
-      In short: {{top_highlight}}, plus a track record in {{skills}} that fits the role well.
+      {% if top_highlight %}In short: {{top_highlight}}.{% endif %}{% if skills %} I have a track record in {{skills}} that fits the role well.{% endif %}
 
       {{cta}}
 
@@ -180,7 +180,7 @@ templates:
 
       Following up on our talk about the {{role}} opening. I enjoyed hearing how the team works and where they're headed.
 
-      For a quick refresher, my strengths in {{skills}} and {{top_highlight}} are what I'd bring to {{company}}.
+      {% if skills %}For a quick refresher, my strengths in {{skills}} are what I'd bring to {{company}}.{% endif %}{% if top_highlight %} {{top_highlight}} is a recent highlight.{% endif %}
 
       {{cta}}
 
@@ -193,7 +193,7 @@ templates:
 
       Touching base after we spoke about {{job_title}}. No rush on your end, I just wanted to stay connected and keep the door open.
 
-      My work in {{skills}} fits closely with the role, and {{top_highlight}} is a recent example I'm proud of.
+      {% if skills %}My work in {{skills}} fits closely with the role.{% endif %}{% if top_highlight %} {{top_highlight}} is a recent example I'm proud of.{% endif %}
       {% if job_url %}The role link, for convenience: {{job_url}}{% endif %}
 
       {{cta}}
@@ -207,7 +207,7 @@ templates:
 
       Quick note to say thanks for the call about the {{role}} role at {{company}}. It gave me a much clearer picture, and I'm all in.
 
-      Where I fit: {{top_highlight}}, with strong hands-on experience in {{skills}}.
+      {% if top_highlight %}Where I fit: {{top_highlight}}.{% endif %}{% if skills %} I have strong hands-on experience in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -220,7 +220,7 @@ templates:
 
       After our conversation about {{job_title}}, I wanted to follow up with a bit more on why I think it's a strong match.
 
-      My experience centers on {{skills}}, and {{top_highlight}} reflects the kind of impact I'd aim for at {{company}}.
+      {% if skills %}My experience centers on {{skills}}.{% endif %}{% if top_highlight %} {{top_highlight}} reflects the kind of impact I'd aim for at {{company}}.{% endif %}
 
       {{cta}}
 
@@ -233,7 +233,7 @@ templates:
 
       Following up to reaffirm my interest in the {{role}} role at {{company}} after our chat. It's exactly the direction I want my next move to take.
 
-      A quick reminder of my fit: {{top_highlight}} and solid depth in {{skills}}.
+      {% if top_highlight %}A quick reminder of my fit: {{top_highlight}}.{% endif %}{% if skills %} I also bring solid depth in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -246,7 +246,7 @@ templates:
 
       Thanks again for connecting about {{job_title}}. I'd love to keep things moving and am happy to share anything that would help on your side.
 
-      My background in {{skills}} fits the role well, and {{top_highlight}} is one example of what I can contribute at {{company}}.
+      {% if skills %}My background in {{skills}} fits the role well.{% endif %}{% if top_highlight %} {{top_highlight}} is one example of what I can contribute at {{company}}.{% endif %}
       {% if job_id %}Referencing req {{job_id}}.{% endif %}
 
       {{cta}}
@@ -260,7 +260,7 @@ templates:
 
       Just checking in after our conversation about the {{role}} position at {{company}}. I remain very interested and wanted to keep the line open.
 
-      To recap: {{top_highlight}}, supported by strong experience in {{skills}}.
+      {% if top_highlight %}To recap: {{top_highlight}}.{% endif %}{% if skills %} It's supported by strong experience in {{skills}}.{% endif %}
 
       {{cta}}
 

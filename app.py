@@ -33,6 +33,7 @@ from domain_resolver import DomainResolver
 from email_generator import EmailGenerator
 from email_sender import EmailSender, OutgoingEmail, build_provider
 from email_verifier import EmailVerifier
+from ai_generator import AIGenerator
 from logger import CsvLogger, get_logger
 from models import Candidate, Designation, Recipient
 from personalization import Personalizer
@@ -40,6 +41,11 @@ from resume_parser import parse_resume
 from subject_generator import SubjectGenerator
 from template_engine import CATEGORIES, TemplateEngine
 from utils import tidy_text
+
+try:
+    import sources as job_sources
+except Exception:  # pragma: no cover - sources package optional at runtime
+    job_sources = None
 
 
 @dataclass
@@ -54,6 +60,7 @@ class PreparedEmail:
     template_id: str
     attachments: list[str]
     skipped_reason: str = ""
+    source: str = "template"   # "template" | "ai"
 
 
 class ColdMailer:
@@ -94,6 +101,14 @@ class ColdMailer:
             dry_run=config.get("dry_run", True))
 
         self.rate = config.get("rate_limit", {})
+
+        # --- optional extensions ---
+        self.ai = AIGenerator(config.get("ai", {}))
+        if self.ai.enabled and not self.ai.available:
+            self.log.warning("ai.enabled is true but the Anthropic client is "
+                             "unavailable (missing 'anthropic' package or API key); "
+                             "falling back to templates.")
+        self.job_cfg = config.get("job_sources", {})
 
     # ------------------------------------------------------------------ #
     # Candidate (sender) construction                                    #
@@ -159,16 +174,34 @@ class ColdMailer:
         rng = self.personalizer.rng_for(
             recipient.chosen_email or recipient.person_full_name + recipient.company_name)
 
-        category = self._key(category) if category else self._choose_category(recipient, rng)
-        template = self.templates.choose(category, rng)
+        category = (self.templates._key(category) if category
+                    else self._choose_category(recipient, rng))
         context = build_context(candidate, recipient)
 
-        # Add personalization pieces into the context so templates can use them.
-        context["greeting"] = self.personalizer.greeting(recipient.person_first_name, rng)
+        # Personalization pieces shared by both the AI and template paths.
+        greeting = self.personalizer.greeting(recipient.person_first_name, rng)
+        context["greeting"] = greeting
         context["closing"] = self.personalizer.closing(rng)
         context["cta"] = self.personalizer.cta(rng)
         context["signature"] = self._render_signature(context)
 
+        # --- AI path (optional): try Claude, fall back to templates on failure.
+        if self.ai.available:
+            ai_email = self.ai.generate(category, context, recipient.job_description)
+            if ai_email:
+                # Wrap the AI body with the same greeting/sign-off the templates use,
+                # so personalization and signature stay consistent.
+                body = tidy_text(f"{greeting}\n\n{ai_email.body}\n\n{context['signature']}")
+                return PreparedEmail(
+                    recipient=recipient, to_email=recipient.chosen_email,
+                    subject=ai_email.subject.strip(), body=body, category=category,
+                    template_id="ai", attachments=self._attachments(candidate),
+                    source="ai")
+            self.log.debug("AI generation unavailable for %s; using template",
+                           recipient.person_full_name)
+
+        # --- Template path (default / fallback).
+        template = self.templates.choose(category, rng)
         body = self.templates.render(template, context)
         body = self.personalizer.personalize_body(body, rng)
         body = tidy_text(body)  # clean artifacts from empty optional placeholders
@@ -182,6 +215,7 @@ class ColdMailer:
             category=category,
             template_id=template.id,
             attachments=self._attachments(candidate),
+            source="template",
         )
 
     def _render_signature(self, context: dict) -> str:
@@ -221,10 +255,57 @@ class ColdMailer:
         return rng.choice(options)
 
     # ------------------------------------------------------------------ #
+    # Job-board enrichment (optional)                                    #
+    # ------------------------------------------------------------------ #
+    def enrich_from_job_board(self, recipient: Recipient) -> None:
+        """Fill in job_title/job_id/job_url/description from the company's ATS.
+
+        Looks for the best-matching open role on the configured board and
+        populates any empty job fields on ``recipient``. Best-effort: any error
+        (network, no match, sources package missing) is logged and ignored.
+        """
+        if not self.job_cfg.get("enabled") or job_sources is None:
+            return
+        vendor = recipient.ats_vendor or self.job_cfg.get("default_vendor")
+        token = recipient.ats_board_token
+        if not vendor or not token:
+            return
+        try:
+            postings = job_sources.fetch_jobs(
+                vendor, token,
+                keywords=self.job_cfg.get("match_keywords"),
+                with_content=self.job_cfg.get("fetch_description", True),
+            )
+        except Exception as exc:
+            self.log.warning("job board fetch failed for %s/%s: %s", vendor, token, exc)
+            return
+        if not postings:
+            self.log.info("no matching roles on %s board %s", vendor, token)
+            return
+
+        # If a specific job_id was requested, prefer that exact posting.
+        chosen = None
+        if recipient.job_id:
+            chosen = next((p for p in postings if p.job_id == recipient.job_id), None)
+        posting = chosen or postings[0]
+
+        recipient.job_title = recipient.job_title or posting.title
+        recipient.job_id = recipient.job_id or posting.job_id
+        recipient.job_url = recipient.job_url or posting.url
+        if not recipient.job_description and posting.content:
+            recipient.job_description = posting.content
+        self.log.info("matched role '%s' (%s) for %s @ %s", posting.title,
+                      posting.job_id or "no id", recipient.person_full_name,
+                      recipient.company_name)
+
+    # ------------------------------------------------------------------ #
     # Full pipeline for one recipient                                    #
     # ------------------------------------------------------------------ #
     def process(self, candidate: Candidate, recipient: Recipient,
                 category: Optional[str] = None) -> PreparedEmail:
+        # Step 0 (optional): enrich job context from the company's ATS board.
+        self.enrich_from_job_board(recipient)
+
         # Step 1 & 2: resolve domain + generate candidate emails.
         candidates = self.resolve_addresses(recipient)
         if not candidates:
@@ -269,6 +350,7 @@ class ColdMailer:
                               subject=prepared.subject,
                               template_category=prepared.category,
                               template_id=prepared.template_id,
+                              source=prepared.source,
                               provider=self.cfg["provider"],
                               message_id=result.message_id,
                               status="dry_run" if self.sender.dry_run else "sent")
@@ -313,6 +395,8 @@ def load_recipients(path: str | Path) -> list[Recipient]:
                 job_title=row.get("job_title", "").strip(),
                 job_id=row.get("job_id", "").strip(),
                 job_url=row.get("job_url", "").strip(),
+                ats_vendor=(row.get("ats_vendor") or "").strip() or None,
+                ats_board_token=(row.get("ats_board_token") or "").strip() or None,
             ))
     return recipients
 
@@ -350,12 +434,36 @@ def build_arg_parser() -> argparse.ArgumentParser:
     em = sub.add_parser("emails", parents=[common],
                         help="list generated candidate addresses only")
     em.add_argument("--no-verify", action="store_true")
+
+    # `jobs` is standalone (no recipients CSV needed) — scrape a board.
+    jb = sub.add_parser("jobs", help="list open roles from a company's ATS board")
+    jb.add_argument("--source", required=True, help="greenhouse | lever | ashby")
+    jb.add_argument("--board", required=True, help="company slug on that ATS")
+    jb.add_argument("--keywords", nargs="*", default=None,
+                    help="filter titles by these keywords")
+    jb.add_argument("--locations", nargs="*", default=None,
+                    help="filter by location substrings")
     return p
 
 
 def main(argv: Optional[list[str]] = None) -> int:
     args = build_arg_parser().parse_args(argv)
     cfg = load_config(args.config)
+
+    # `jobs` doesn't need a candidate or recipients CSV.
+    if args.command == "jobs":
+        if job_sources is None:
+            print("job sources unavailable (install 'requests')")
+            return 1
+        postings = job_sources.fetch_jobs(
+            args.source, args.board, keywords=args.keywords, locations=args.locations)
+        print(f"# {len(postings)} role(s) on {args.source}/{args.board}")
+        for p in postings:
+            loc = f" — {p.location}" if p.location else ""
+            jid = f" [id {p.job_id}]" if p.job_id else ""
+            print(f"  {p.title}{jid}{loc}\n    {p.url}")
+        return 0
+
     mailer = ColdMailer(cfg)
     candidate = mailer.build_candidate(**_candidate_kwargs(args))
     recipients = load_recipients(args.recipients)
@@ -378,7 +486,7 @@ def main(argv: Optional[list[str]] = None) -> int:
                 continue
             print(f"To:      {prepared.to_email}")
             print(f"Subject: {prepared.subject}")
-            print(f"[{prepared.category} / {prepared.template_id}]")
+            print(f"[{prepared.source} | {prepared.category} / {prepared.template_id}]")
             print(f"Attach:  {prepared.attachments}")
             print("-" * 70)
             print(prepared.body)

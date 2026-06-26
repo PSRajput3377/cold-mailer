@@ -6,7 +6,7 @@ templates:
     body: |
       {{greeting}}
 
-      I recently applied to the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and wanted to reach out directly. With my background in {{skills}}, I think I'd be a strong fit, and a referral from you would mean a lot in getting my application a closer look.
+      I recently applied to the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and wanted to reach out directly.{% if skills %} With my background in {{skills}}, I think I'd be a strong fit, and a referral from you would mean a lot in getting my application a closer look.{% else %} A referral from you would mean a lot in getting my application a closer look.{% endif %}
 
       {{cta}}
 
@@ -17,7 +17,7 @@ templates:
     body: |
       {{greeting}}
 
-      Just submitted my application for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is the kind of work I'd love to bring to the team. If you're comfortable, a quick referral would help my resume rise above the pile.
+      Just submitted my application for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}.{% if top_highlight %} {{top_highlight}} is the kind of work I'd love to bring to the team.{% endif %} If you're comfortable, a quick referral would help my resume rise above the pile.
 
       {{cta}}
 
@@ -28,7 +28,7 @@ templates:
     body: |
       {{greeting}}
 
-      I applied for the {{job_title}} position {% if job_id %}(Job ID {{job_id}}){% endif %} a few days ago and figured I'd be honest about why I'm messaging: a referral from someone on the inside goes a long way. My strengths in {{skills}} line up closely with what the role needs.
+      I applied for the {{job_title}} position {% if job_id %}(Job ID {{job_id}}){% endif %} a few days ago and figured I'd be honest about why I'm messaging: a referral from someone on the inside goes a long way.{% if skills %} My strengths in {{skills}} line up closely with what the role needs.{% endif %}
 
       {{cta}}
 
@@ -39,7 +39,7 @@ templates:
     body: |
       {{greeting}}
 
-      Short version: I've already applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}, and I'd be grateful if you could flag my application internally. {{top_highlight}}, which I think speaks to the role.
+      Short version: I've already applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}, and I'd be grateful if you could flag my application internally.{% if top_highlight %} {{top_highlight}}, which I think speaks to the role.{% endif %}
 
       {{cta}}
 
@@ -50,7 +50,7 @@ templates:
     body: |
       {{greeting}}
 
-      I put in an application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} this week. I know how much weight an internal referral carries, so I wanted to ask directly. My experience with {{skills}} maps well to what you're hiring for.
+      I put in an application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} this week. I know how much weight an internal referral carries, so I wanted to ask directly.{% if skills %} My experience with {{skills}} maps well to what you're hiring for.{% endif %}
 
       {{cta}}
 
@@ -61,7 +61,7 @@ templates:
     body: |
       {{greeting}}
 
-      My application for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} is officially submitted. If it's not too much to ask, a referral from you could really help it stand out. Quick on my fit: {{top_highlight}}.
+      My application for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} is officially submitted. If it's not too much to ask, a referral from you could really help it stand out.{% if top_highlight %} Quick on my fit: {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -72,7 +72,7 @@ templates:
     body: |
       {{greeting}}
 
-      I recently applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and was hoping you might be able to refer me or put in a good word. I bring solid experience in {{skills}}, and I'd be happy to share more if it's useful.
+      I recently applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and was hoping you might be able to refer me or put in a good word.{% if skills %} I bring solid experience in {{skills}}, and I'd be happy to share more if it's useful.{% else %} I'd be happy to share more if it's useful.{% endif %}
 
       {{cta}}
 
@@ -83,7 +83,7 @@ templates:
     body: |
       {{greeting}}
 
-      I'll keep this brief: I've applied for the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and would really appreciate a referral if you're willing. {{top_highlight}}, so I'm confident I could contribute quickly.
+      I'll keep this brief: I've applied for the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and would really appreciate a referral if you're willing.{% if top_highlight %} {{top_highlight}}, so I'm confident I could contribute quickly.{% endif %}
 
       {{cta}}
 
@@ -94,7 +94,7 @@ templates:
     body: |
       {{greeting}}
 
-      Application is in for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. Applications can disappear into the void, so I'm reaching out to ask if you'd refer me internally. My work in {{skills}} is right in line with the role.
+      Application is in for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. Applications can disappear into the void, so I'm reaching out to ask if you'd refer me internally.{% if skills %} My work in {{skills}} is right in line with the role.{% endif %}
 
       {{cta}}
 
@@ -105,7 +105,7 @@ templates:
     body: |
       {{greeting}}
 
-      I submitted my application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. Given your connection to the team, a quick referral would help enormously. For context, {{top_highlight}}.
+      I submitted my application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. Given your connection to the team, a quick referral would help enormously.{% if top_highlight %} For context, {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -116,7 +116,7 @@ templates:
     body: |
       {{greeting}}
 
-      I applied for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and wanted to ask if you'd be open to referring me. I've spent a good amount of time building skills in {{skills}}, which match what the posting is after.
+      I applied for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and wanted to ask if you'd be open to referring me.{% if skills %} I've spent a good amount of time building skills in {{skills}}, which match what the posting is after.{% endif %}
 
       {{cta}}
 
@@ -127,7 +127,7 @@ templates:
     body: |
       {{greeting}}
 
-      My application for the {{job_title}} position {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} went in recently. A referral from you would give it a much better shot at being reviewed. Briefly on fit: {{top_highlight}}.
+      My application for the {{job_title}} position {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} went in recently. A referral from you would give it a much better shot at being reviewed.{% if top_highlight %} Briefly on fit: {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -138,7 +138,7 @@ templates:
     body: |
       {{greeting}}
 
-      I've applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and I'm hoping for a small nudge — would you be willing to refer me? My background in {{skills}} fits the role well, and I'd love the chance to interview.
+      I've applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and I'm hoping for a small nudge — would you be willing to refer me?{% if skills %} My background in {{skills}} fits the role well, and I'd love the chance to interview.{% else %} I'd love the chance to interview.{% endif %}
 
       {{cta}}
 
@@ -149,7 +149,7 @@ templates:
     body: |
       {{greeting}}
 
-      I just finished applying for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. If you're comfortable referring me, it would genuinely help my application get seen. {{top_highlight}}, which feels relevant here.
+      I just finished applying for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. If you're comfortable referring me, it would genuinely help my application get seen.{% if top_highlight %} {{top_highlight}}, which feels relevant here.{% endif %}
 
       {{cta}}
 
@@ -160,7 +160,7 @@ templates:
     body: |
       {{greeting}}
 
-      Rather than hope my application gets noticed, I figured I'd ask you directly. I applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}, and a referral would carry real weight. My experience in {{skills}} lines up with the role.
+      Rather than hope my application gets noticed, I figured I'd ask you directly. I applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}, and a referral would carry real weight.{% if skills %} My experience in {{skills}} lines up with the role.{% endif %}
 
       {{cta}}
 
@@ -171,7 +171,7 @@ templates:
     body: |
       {{greeting}}
 
-      I applied for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and would love your help getting it in front of the right people. {{top_highlight}}, and I think I'd add value to the team quickly.
+      I applied for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and would love your help getting it in front of the right people.{% if top_highlight %} {{top_highlight}}, and I think I'd add value to the team quickly.{% endif %}
 
       {{cta}}
 
@@ -182,7 +182,7 @@ templates:
     body: |
       {{greeting}}
 
-      Wanted to let you know I've applied for the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. If you'd be open to referring me, I'd be truly grateful. On the skills front, I'm strong in {{skills}}.
+      Wanted to let you know I've applied for the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. If you'd be open to referring me, I'd be truly grateful.{% if skills %} On the skills front, I'm strong in {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -193,7 +193,7 @@ templates:
     body: |
       {{greeting}}
 
-      I recently applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. I'd value a referral from you to help the application get the attention it needs. Quick note on fit: {{top_highlight}}.
+      I recently applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. I'd value a referral from you to help the application get the attention it needs.{% if top_highlight %} Quick note on fit: {{top_highlight}}.{% endif %}
 
       {{cta}}
 
@@ -204,7 +204,7 @@ templates:
     body: |
       {{greeting}}
 
-      My application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} is submitted. I know referrals make a difference, so I wanted to ask if you'd be willing. My background in {{skills}} aligns closely with the position.
+      My application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} is submitted. I know referrals make a difference, so I wanted to ask if you'd be willing.{% if skills %} My background in {{skills}} aligns closely with the position.{% endif %}
 
       {{cta}}
 
@@ -215,7 +215,7 @@ templates:
     body: |
       {{greeting}}
 
-      I've applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and am reaching out to ask if you might put in a good word. {{top_highlight}}, so I'm hopeful I'd be a strong addition to the team.
+      I've applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and am reaching out to ask if you might put in a good word.{% if top_highlight %} {{top_highlight}}, so I'm hopeful I'd be a strong addition to the team.{% endif %}
 
       {{cta}}
 

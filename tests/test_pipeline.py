@@ -96,6 +96,46 @@ def test_every_template_renders_without_leftover_placeholders():
                 assert body.strip().endswith("Sam")
 
 
+def test_templates_render_cleanly_with_empty_optional_fields():
+    """A candidate with no resume (no skills/highlights/internship/links) and a
+    recipient with no job_id/job_url must still produce artifact-free emails —
+    every optional placeholder is guarded with {% if %}."""
+    import re
+    from utils import tidy_text
+    te = TemplateEngine(TEMPLATES_DIR)
+    ctx = dict(
+        first_name="Jane", last_name="Doe", full_name="Jane Doe",
+        designation="Recruiter", company="Acme", domain="acme.com",
+        job_title="Software Engineer", role="Software Engineer",
+        candidate_name="Sam Lee", candidate_first_name="Sam",
+        preferred_role="Software Engineer", resume="Software Engineer",
+        greeting="Hi Jane,", closing="Best", cta="Could we chat?", signature="Best,\nSam",
+        # all optionals empty:
+        job_id="", job_url="", linkedin="", github="", portfolio="", phone="",
+        skills="", skills_list=[], resume_highlights="", resume_highlights_list=[],
+        top_highlight="", recent_internship="",
+    )
+    # Artifacts that signal an unguarded empty placeholder (after tidy_text).
+    artifact_patterns = [
+        r"(^|\n)\s*[,.;:]",                        # line starts with punctuation
+        r"\(\s*\)",                                 # empty parens
+        r"[ ]{2,}",                                 # doubled spaces mid-line
+        r"\b(in|with|of|using|on|as|like|here|at)\s+[.,;:]",  # connector then punct
+        r"\b(experience|background|work|skills|strengths|fit) (in|with)\b(?!\s+\S)",
+        r"[a-z]:\s*[.\n]",                          # "label:" then empty
+        r",\s*and\s*[.\n]",                         # dangling "and"
+    ]
+    offenders = []
+    for key in CATEGORIES:
+        for t in te.get_templates(key):
+            body = tidy_text(te.render(t, ctx))
+            for pat in artifact_patterns:
+                if re.search(pat, body):
+                    offenders.append(t.id)
+                    break
+    assert not offenders, f"empty-field artifacts in: {offenders}"
+
+
 # --- subjects (Step 6) ------------------------------------------------------
 def test_subject_variations_exceed_100():
     sg = SubjectGenerator(seed=1)

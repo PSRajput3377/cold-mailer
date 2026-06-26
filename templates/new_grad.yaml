@@ -6,7 +6,7 @@ templates:
     body: |
       {{greeting}}
 
-      I'm finishing up my degree and looking for a new-grad Software Engineer role, and {{company}} is high on my list. I've been working mostly with {{skills}}, and {% if recent_internship %}my time as a {{recent_internship}} gave me a real feel for shipping code that other people depend on.{% else %}I've spent the last year turning class projects into things people actually use.{% endif %}
+      I'm finishing up my degree and looking for a new-grad Software Engineer role, and {{company}} is high on my list. {% if skills %}I've been working mostly with {{skills}}. {% endif %}{% if recent_internship %}My time as a {{recent_internship}} gave me a real feel for shipping code that other people depend on.{% else %}I've spent the last year turning class projects into things people actually use.{% endif %}
 
       {% if github %}A bit of my work is on {{github}} if you want a quick look.{% endif %} {{cta}}
 
@@ -19,7 +19,7 @@ templates:
 
       Quick note: I just applied for the {{role}} opening{% if job_id %} (req {{job_id}}){% endif %} and wanted to say hello directly rather than disappear into an inbox.
 
-      {% if top_highlight %}{{top_highlight}}{% else %}Most of my hands-on experience is in {{skills}}, built across internships and side projects.{% endif %} {{cta}}
+      {% if top_highlight %}{{top_highlight}}{% elif skills %}Most of my hands-on experience is in {{skills}}, built across internships and side projects.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -30,7 +30,7 @@ templates:
 
       I graduate this term and I'm focused on finding the right first engineering role rather than just any role. {{company}}'s work is the kind of thing I'd be glad to spend my early career on.
 
-      I've worked with {{skills}}{% if recent_internship %}, including a stint as a {{recent_internship}}{% endif %}. {% if portfolio %}There's more at {{portfolio}}.{% endif %}
+      {% if skills %}I've worked with {{skills}}{% if recent_internship %}, including a stint as a {{recent_internship}}{% endif %}.{% elif recent_internship %}I recently had a stint as a {{recent_internship}}.{% endif %} {% if portfolio %}There's more at {{portfolio}}.{% endif %}
 
       {{cta}}
 
@@ -43,7 +43,7 @@ templates:
 
       I'm a soon-to-be grad reaching out about new-grad engineering roles at {{company}}. I'll keep this short.
 
-      {% if recent_internship %}My most recent experience was as a {{recent_internship}}, where I learned how much detail goes into production code.{% else %}I've spent the last year building real projects, not just coursework.{% endif %} I'm comfortable with {{skills}}.
+      {% if recent_internship %}My most recent experience was as a {{recent_internship}}, where I learned how much detail goes into production code.{% else %}I've spent the last year building real projects, not just coursework.{% endif %}{% if skills %} I'm comfortable with {{skills}}.{% endif %}
 
       {{cta}}
 
@@ -56,7 +56,7 @@ templates:
 
       I came across the {% if job_title %}{{job_title}}{% else %}{{role}}{% endif %} role and it lines up well with what I've been building. I'm graduating soon and ready to take on a real engineering team's problems.
 
-      A snapshot: {% if top_highlight %}{{top_highlight}}{% else %}solid footing in {{skills}} and a habit of shipping things end to end.{% endif %} {% if github %}Code lives at {{github}}.{% endif %}
+      {% if top_highlight %}A snapshot: {{top_highlight}}{% elif skills %}A snapshot: solid footing in {{skills}} and a habit of shipping things end to end.{% endif %} {% if github %}Code lives at {{github}}.{% endif %}
 
       {{cta}}
 
@@ -69,7 +69,7 @@ templates:
 
       I'll be honest — {{company}} is one of the few places I'd genuinely be excited to start my career, so I wanted to reach out directly.
 
-      {% if recent_internship %}As a {{recent_internship}} I got my first taste of shipping under real constraints, and I want more of it.{% else %}I've been building projects with {{skills}} and I'm hungry to do it on a real team.{% endif %} {{cta}}
+      {% if recent_internship %}As a {{recent_internship}} I got my first taste of shipping under real constraints, and I want more of it.{% elif skills %}I've been building projects with {{skills}} and I'm hungry to do it on a real team.{% else %}I've been building projects on my own and I'm hungry to do it on a real team.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -80,7 +80,7 @@ templates:
 
       I'm wrapping up my degree and exploring new-grad Software Engineer openings. Are you the right person to talk to about {{company}}'s entry-level pipeline, or could you point me toward them?
 
-      For context: {{skills}}{% if recent_internship %}, plus recent work as a {{recent_internship}}{% endif %}. {% if linkedin %}More on LinkedIn: {{linkedin}}.{% endif %}
+      {% if skills %}For context: {{skills}}{% if recent_internship %}, plus recent work as a {{recent_internship}}{% endif %}.{% elif recent_internship %}For context: recent work as a {{recent_internship}}.{% endif %} {% if linkedin %}More on LinkedIn: {{linkedin}}.{% endif %}
 
       {{cta}}
 
@@ -93,7 +93,7 @@ templates:
 
       I submitted my application for the {{role}} position{% if job_url %} ({{job_url}}){% endif %} and figured a short, human note couldn't hurt.
 
-      {% if top_highlight %}{{top_highlight}}{% else %}I work mainly in {{skills}} and care a lot about writing code other people can read.{% endif %} I'm not looking to fill a seat — I want a place I can actually grow. {{cta}}
+      {% if top_highlight %}{{top_highlight}}{% elif skills %}I work mainly in {{skills}} and care a lot about writing code other people can read.{% else %}I care a lot about writing code other people can read.{% endif %} I'm not looking to fill a seat — I want a place I can actually grow. {{cta}}
 
       {{signature}}
 
@@ -104,7 +104,7 @@ templates:
 
       Reaching out about new-grad SWE roles at {{company}}. I'm finishing school and would rather start somewhere with strong engineers than chase a title.
 
-      {% if recent_internship %}I interned as a {{recent_internship}} and shipped work that's still in use.{% endif %} Comfortable with {{skills}}.{% if github %} Samples on {{github}}.{% endif %}
+      {% if recent_internship %}I interned as a {{recent_internship}} and shipped work that's still in use.{% endif %}{% if skills %} Comfortable with {{skills}}.{% endif %}{% if github %} Samples on {{github}}.{% endif %}
 
       {{cta}}
 
@@ -117,7 +117,7 @@ templates:
 
       I'm a graduating student looking for my first engineering role, and I've followed {{company}}'s work for a while. Rather than send a cold application alone, I wanted to say hi.
 
-      {% if top_highlight %}{{top_highlight}}{% else %}I've built a few real things with {{skills}} and learned a lot from each one.{% endif %} {% if portfolio %}Portfolio: {{portfolio}}.{% endif %} {{cta}}
+      {% if top_highlight %}{{top_highlight}}{% elif skills %}I've built a few real things with {{skills}} and learned a lot from each one.{% else %}I've built a few real things and learned a lot from each one.{% endif %} {% if portfolio %}Portfolio: {{portfolio}}.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -128,7 +128,7 @@ templates:
 
       {% if job_title %}The {{job_title}} role{% else %}Your new-grad engineering posting{% endif %} caught my eye{% if job_id %} (req {{job_id}}){% endif %}, and it's a good match for where I'm headed.
 
-      I'll be done with my degree shortly. Day to day I work in {{skills}}{% if recent_internship %}, sharpened by a recent {{recent_internship}} role{% endif %}. {{cta}}
+      I'll be done with my degree shortly. {% if skills %}Day to day I work in {{skills}}{% if recent_internship %}, sharpened by a recent {{recent_internship}} role{% endif %}.{% elif recent_internship %}I recently sharpened my skills in a {{recent_internship}} role.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -139,7 +139,7 @@ templates:
 
       I think the first engineering job matters more than people admit, which is why I'm being picky — and why I'm writing to {{company}}.
 
-      {% if recent_internship %}My {{recent_internship}} experience taught me that I learn fastest near good engineers.{% else %}I've learned the most when I'm in over my head a little, which is what I'm after.{% endif %} I work with {{skills}}. {{cta}}
+      {% if recent_internship %}My {{recent_internship}} experience taught me that I learn fastest near good engineers.{% else %}I've learned the most when I'm in over my head a little, which is what I'm after.{% endif %}{% if skills %} I work with {{skills}}.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -148,7 +148,7 @@ templates:
     body: |
       {{greeting}}
 
-      Short version: graduating this year, strong in {{skills}}, and genuinely interested in new-grad engineering work at {{company}}.
+      Short version: graduating this year, {% if skills %}strong in {{skills}}, and {% endif %}genuinely interested in new-grad engineering work at {{company}}.
 
       {% if github %}You can see how I write code at {{github}}.{% endif %}{% if recent_internship %} Before this I was a {{recent_internship}}.{% endif %}
 
@@ -163,7 +163,7 @@ templates:
 
       I noticed the {{role}} opening and wanted to put a name to my application instead of staying anonymous.
 
-      {% if top_highlight %}{{top_highlight}}{% else %}I've spent my last year building with {{skills}} and I'm ready for the real thing.{% endif %} I know I'm early in my career — I'm fine with that and eager to learn fast. {{cta}}
+      {% if top_highlight %}{{top_highlight}}{% elif skills %}I've spent my last year building with {{skills}} and I'm ready for the real thing.{% else %}I've spent my last year building and I'm ready for the real thing.{% endif %} I know I'm early in my career — I'm fine with that and eager to learn fast. {{cta}}
 
       {{signature}}
 
@@ -174,7 +174,7 @@ templates:
 
       Most of what I know I learned by building, not just studying. That's the kind of engineer I'd like to be at {{company}}.
 
-      {% if recent_internship %}I recently worked as a {{recent_internship}};{% endif %} I'm fluent in {{skills}}.{% if portfolio %} A few builds: {{portfolio}}.{% endif %} I'm finishing my degree and looking for the right new-grad role.
+      {% if recent_internship %}I recently worked as a {{recent_internship}}.{% endif %}{% if skills %} I'm fluent in {{skills}}.{% endif %}{% if portfolio %} A few builds: {{portfolio}}.{% endif %} I'm finishing my degree and looking for the right new-grad role.
 
       {{cta}}
 
@@ -187,7 +187,7 @@ templates:
 
       I'm a graduating student, and {{company}} is one of the teams I'd most like to learn from early on. Wanted to reach out before applying into the void.
 
-      {% if top_highlight %}{{top_highlight}}{% else %}I've got a solid base in {{skills}} and a few projects I'm proud of.{% endif %} {% if linkedin %}{{linkedin}}{% endif %} {{cta}}
+      {% if top_highlight %}{{top_highlight}}{% elif skills %}I've got a solid base in {{skills}} and a few projects I'm proud of.{% else %}I've got a few projects I'm proud of.{% endif %} {% if linkedin %}{{linkedin}}{% endif %} {{cta}}
 
       {{signature}}
 
@@ -198,7 +198,7 @@ templates:
 
       Finishing my degree soon and looking for new-grad engineering roles. I'd rather join a team where I'll be stretched than one where I'll coast, which is what brought me to {{company}}.
 
-      {% if recent_internship %}As a {{recent_internship}} I learned the difference between code that works and code that lasts.{% endif %} Strongest in {{skills}}. {{cta}}
+      {% if recent_internship %}As a {{recent_internship}} I learned the difference between code that works and code that lasts.{% endif %}{% if skills %} Strongest in {{skills}}.{% endif %} {{cta}}
 
       {{signature}}
 
@@ -209,7 +209,7 @@ templates:
 
       I'll keep this brief. I'm graduating, I write code I'm not embarrassed by, and I'd like to do it at {{company}}.
 
-      {% if github %}Proof's on {{github}}.{% endif %} I work mostly in {{skills}}{% if recent_internship %}, most recently as a {{recent_internship}}{% endif %}.
+      {% if github %}Proof's on {{github}}.{% endif %} {% if skills %}I work mostly in {{skills}}{% if recent_internship %}, most recently as a {{recent_internship}}{% endif %}.{% elif recent_internship %}I most recently worked as a {{recent_internship}}.{% endif %}
 
       {{cta}}
 
@@ -222,7 +222,7 @@ templates:
 
       Are you hiring new-grad engineers this cycle? I'm graduating and would love to be considered for a {% if job_title %}{{job_title}}{% else %}{{role}}{% endif %} role{% if job_id %} (req {{job_id}}){% endif %}.
 
-      Quick background: {{skills}}{% if recent_internship %}, plus a {{recent_internship}} internship{% endif %}. {% if top_highlight %}{{top_highlight}}{% endif %} {{cta}}
+      {% if skills %}Quick background: {{skills}}{% if recent_internship %}, plus a {{recent_internship}} internship{% endif %}.{% elif recent_internship %}Quick background: a {{recent_internship}} internship.{% endif %} {% if top_highlight %}{{top_highlight}}{% endif %} {{cta}}
 
       {{signature}}
 
@@ -233,6 +233,6 @@ templates:
 
       I'm at the start of my career and trying to be deliberate about where it begins. {{company}} keeps coming up, so here I am.
 
-      {% if recent_internship %}My {{recent_internship}} role showed me what good engineering culture feels like, and I want to keep that going.{% else %}I've built enough on my own to know I want to build alongside a strong team next.{% endif %} I work with {{skills}}.{% if portfolio %} See {{portfolio}}.{% endif %} {{cta}}
+      {% if recent_internship %}My {{recent_internship}} role showed me what good engineering culture feels like, and I want to keep that going.{% else %}I've built enough on my own to know I want to build alongside a strong team next.{% endif %}{% if skills %} I work with {{skills}}.{% endif %}{% if portfolio %} See {{portfolio}}.{% endif %} {{cta}}
 
       {{signature}}

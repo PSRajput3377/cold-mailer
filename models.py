@@ -85,6 +85,12 @@ class Recipient:
     job_id: str = ""
     job_url: str = ""
 
+    # Job-board (ATS) source, optional — used to auto-fill job context and to
+    # feed the AI generator a real job description.
+    ats_vendor: Optional[str] = None     # greenhouse | lever | ashby
+    ats_board_token: Optional[str] = None
+    job_description: str = ""
+
     # Filled in by the pipeline.
     resolved_domain: Optional[str] = None
     candidate_emails: list[str] = field(default_factory=list)
