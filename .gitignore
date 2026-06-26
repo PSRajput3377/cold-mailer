@@ -1,0 +1,16 @@
+# Secrets
+.env
+
+# Logs (runtime output)
+logs/*.csv
+
+# Local assets (resume, cover letter, etc.)
+assets/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/

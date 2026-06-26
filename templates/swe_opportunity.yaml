@@ -1,0 +1,246 @@
+category: swe_opportunity
+label: "Request for Software Engineer opportunity"
+templates:
+  - id: swe_opportunity_01
+    subject: "SWE interest at {{company}}"
+    body: |
+      {{greeting}}
+
+      I've been following {{company}} for a while and would love to join your engineering team as a Software Engineer. Recently I {{top_highlight}}, and I work mostly across {{skills}}.
+
+      If there's room for someone like me, I'd be glad to share more. {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_02
+    subject: "Engineer looking to build at {{company}}"
+    body: |
+      {{greeting}}
+
+      Quick note from a builder: {{company}} is solving problems I genuinely care about, and I'd like to contribute as a Software Engineer.
+
+      A bit of proof I can pull my weight: {{recent_internship}}. My day-to-day stack is {{skills}}. {% if job_url %}I saw the opening here: {{job_url}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_03
+    subject: "Would love to write code for {{company}}"
+    body: |
+      {{greeting}}
+
+      Reaching out because I want to work on hard engineering problems, and {{company}} clearly does. I'd like to be considered for a Software Engineer role.
+
+      Most relevant thing about me: {{top_highlight}}. You can skim my work at {{github}}.
+
+      {{signature}}
+
+  - id: swe_opportunity_04
+    subject: "{{role}} candidate, fast and hands-on"
+    body: |
+      {{greeting}}
+
+      Short version: strong engineer, ships quickly, comfortable owning features end to end. I'd love a {{role}} seat on your team.
+
+      {{recent_internship}} taught me how to move fast without breaking things. Stack: {{skills}}. Portfolio: {{portfolio}}.
+
+      Happy to do a quick call whenever works. {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_05
+    subject: "Software Engineer interested in {{company}}"
+    body: |
+      {{greeting}}
+
+      Your team's work caught my attention, and I'd like to throw my hat in for a Software Engineer position.
+
+      The highlight I'm proudest of: {{top_highlight}}. I build with {{skills}} and keep code clean.{% if job_id %} Referencing req {{job_id}}.{% endif %}
+
+      {{signature}}
+
+  - id: swe_opportunity_06
+    subject: "Can I help build {{company}}?"
+    body: |
+      {{greeting}}
+
+      Founder-to-engineer: I love early, scrappy teams and I want to help {{company}} ship faster. Looking for a Software Engineer role.
+
+      I recently {{top_highlight}}, and I'm fluent in {{skills}}. No long ramp-up needed.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_07
+    subject: "Resume + interest in your eng team"
+    body: |
+      {{greeting}}
+
+      I'd like to be considered for a {{role}} opening at {{company}}. A few quick proof points below.
+
+      {{resume_highlights}}
+
+      Core skills: {{skills}}. Code samples live at {{github}}.{% if job_url %} The listing I'm referencing: {{job_url}}.{% endif %}
+
+      {{signature}}
+
+  - id: swe_opportunity_08
+    subject: "Engineer who ships, looking at {{company}}"
+    body: |
+      {{greeting}}
+
+      I keep coming back to what {{company}} is building, so I figured I'd just ask: are you hiring Software Engineers?
+
+      Recent work: {{recent_internship}}. I'm strongest in {{skills}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_09
+    subject: "Interested in a {{role}} role"
+    body: |
+      {{greeting}}
+
+      I'm a software engineer who likes shipping real things, and {{company}} is on a short list of teams I'd love to join.
+
+      One thing that sums me up: {{top_highlight}}. My toolkit is {{skills}}, and there's more at {{portfolio}}.
+
+      {{signature}}
+
+  - id: swe_opportunity_10
+    subject: "Quick intro from a SWE candidate"
+    body: |
+      {{greeting}}
+
+      Not going to bury the lead: I'd love a Software Engineer role at {{company}}.
+
+      Why me, briefly: {{recent_internship}}, and I work across {{skills}}. {% if job_id %}This is for req {{job_id}}.{% endif %} Resume and links ready whenever you are.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_11
+    subject: "Hoping to join {{company}} engineering"
+    body: |
+      {{greeting}}
+
+      A few of your products genuinely impressed me, and I'd like to help build the next ones as a Software Engineer.
+
+      The work I'd point to first: {{top_highlight}}. Skills: {{skills}}. GitHub: {{github}}.
+
+      {{signature}}
+
+  - id: swe_opportunity_12
+    subject: "SWE, ready to contribute day one"
+    body: |
+      {{greeting}}
+
+      Straight to it: I want to engineer at {{company}}, and I think I'd add value fast.
+
+      {{resume_highlights}}
+
+      Comfortable across {{skills}}.{% if job_url %} Applying against {{job_url}}.{% endif %} {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_13
+    subject: "Engineer interested in your {{role}} opening"
+    body: |
+      {{greeting}}
+
+      Saw you might be growing the team and wanted to raise my hand for a {{role}} spot.
+
+      Quick credibility: {{recent_internship}}. I primarily build with {{skills}}, and you can see how I think at {{portfolio}}.
+
+      {{signature}}
+
+  - id: swe_opportunity_14
+    subject: "Want to build cool things at {{company}}"
+    body: |
+      {{greeting}}
+
+      I'm an engineer who'd rather build than talk, so here's the short pitch: I want to join {{company}} as a Software Engineer.
+
+      Proudest recent win: {{top_highlight}}. Stack: {{skills}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_15
+    subject: "A SWE who's done their homework on {{company}}"
+    body: |
+      {{greeting}}
+
+      I've spent real time understanding what {{company}} is building, and I'd love to contribute as a Software Engineer.
+
+      What I bring: {{top_highlight}}, plus solid fundamentals in {{skills}}. More context at {{github}}.{% if job_id %} (Req {{job_id}}.){% endif %}
+
+      {{signature}}
+
+  - id: swe_opportunity_16
+    subject: "Open to chat about engineering at {{company}}?"
+    body: |
+      {{greeting}}
+
+      I'll keep this tight: I'm looking for a {{role}} role and {{company}} is exactly the kind of team I want to join.
+
+      {{recent_internship}}, and I'm hands-on with {{skills}}.
+
+      Would 15 minutes work to see if there's a fit? {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_17
+    subject: "Builder reaching out re: SWE roles"
+    body: |
+      {{greeting}}
+
+      Early-stage energy is my favorite kind of energy, which is why I'm writing to {{company}} about a Software Engineer role.
+
+      Latest thing I shipped: {{top_highlight}}. I move fast in {{skills}}. Work samples: {{portfolio}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_18
+    subject: "Adding value to {{company}} as an engineer"
+    body: |
+      {{greeting}}
+
+      I want to help {{company}} build, and I think a {{role}} seat is where I'd do my best work.
+
+      Here's the relevant background: {{resume_highlights}}
+
+      Strongest in {{skills}}.{% if job_url %} I'd be applying to {{job_url}}.{% endif %}
+
+      {{signature}}
+
+  - id: swe_opportunity_19
+    subject: "SWE introduction"
+    body: |
+      {{greeting}}
+
+      Reaching out directly because cold applications get lost: I'd love to engineer at {{company}}.
+
+      One line on me: {{top_highlight}}. Day-to-day stack is {{skills}}, and my code is at {{github}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: swe_opportunity_20
+    subject: "Eager to join the {{company}} team"
+    body: |
+      {{greeting}}
+
+      I'd be genuinely excited to write software at {{company}}, so I wanted to introduce myself for any {{role}} openings.
+
+      {{recent_internship}} sharpened how I build, and I'm confident across {{skills}}.{% if job_id %} For reference, req {{job_id}}.{% endif %} More at {{portfolio}}.
+
+      {{signature}}

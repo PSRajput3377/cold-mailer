@@ -1,0 +1,262 @@
+category: circulate_resume
+label: "Request to circulate resume internally"
+templates:
+  - id: circulate_resume_01
+    subject: "Quick favor: passing my resume along for {{role}}"
+    body: |
+      {{greeting}}
+
+      I saw {{company}} is hiring for {{role}} and figured I'd reach out directly. Would you be open to forwarding my resume to whoever owns that hire? I've attached it here.
+
+      Short version: {{top_highlight}}{% if skills %}, with hands-on work in {{skills}}{% endif %}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_02
+    subject: "Would you forward this to the {{role}} team?"
+    body: |
+      {{greeting}}
+
+      No pressure at all, but if you're connected to the team hiring for {{role}} at {{company}}, I'd be grateful if you could pass my resume their way. It's attached.
+
+      {% if recent_internship %}Most recently I interned at {{recent_internship}}, and {% endif %}I think the fit is solid.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_03
+    subject: "Resume for {{role}} — mind sending it internally?"
+    body: |
+      {{greeting}}
+
+      Reaching out because {{company}} has an opening for {{role}} that lines up well with my background. Could you circulate my resume to the right hiring manager? Attached for convenience.
+
+      Quick highlight: {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_04
+    subject: "A nudge in the right direction for {{role}}"
+    body: |
+      {{greeting}}
+
+      I'd love to throw my hat in for the {{role}} role at {{company}}, and a referral or internal forward would go a long way. Resume is attached if you can pass it to the team.
+
+      {% if skills %}Core strengths: {{skills}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_05
+    subject: "Can you point my resume toward the {{role}} hire?"
+    body: |
+      {{greeting}}
+
+      Hoping you can help me get in front of the right people. {{company}} is hiring for {{role}}{% if job_id %} (req {{job_id}}){% endif %}, and I'd appreciate you forwarding my attached resume to whoever's leading that search.
+
+      {{top_highlight}} — happy to share more if useful.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_06
+    subject: "Resume attached — pass along for {{role}}?"
+    body: |
+      {{greeting}}
+
+      Keeping this brief: would you mind sending my resume to the {{role}} hiring team at {{company}}? Attached here.
+
+      {% if recent_internship %}Came off an internship at {{recent_internship}} and ready to dig in.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_07
+    subject: "Help getting my resume to the {{role}} team"
+    body: |
+      {{greeting}}
+
+      I'm targeting the {{role}} opening at {{company}} and would really value an internal hand-off. If you can forward the attached resume to the hiring manager, that'd mean a lot.
+
+      What I bring: {% if skills %}{{skills}}{% else %}{{top_highlight}}{% endif %}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_08
+    subject: "One ask: circulate my resume for {{role}}"
+    body: |
+      {{greeting}}
+
+      Hate to add to your inbox, so I'll keep it to one ask — could you circulate my resume internally for the {{role}} position at {{company}}? It's attached.
+
+      {{top_highlight}}{% if skills %}, plus depth in {{skills}}{% endif %}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_09
+    subject: "Forwarding request: {{role}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      If it's not too much trouble, I'd appreciate you passing my resume to the team handling {{role}}. Attached and ready to go.
+
+      {% if portfolio %}You can also see my work at {{portfolio}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_10
+    subject: "Mind getting this in front of the {{role}} hire?"
+    body: |
+      {{greeting}}
+
+      I came across the {{role}} opening at {{company}} and think I'd be a strong fit. Would you be willing to forward my attached resume to the right person internally?
+
+      {% if recent_internship %}Recent experience: {{recent_internship}}. {% endif %}{{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_11
+    subject: "Could you share my resume for {{role}}?"
+    body: |
+      {{greeting}}
+
+      Reaching out with a small favor — {{company}} is hiring for {{role}}, and an internal forward of my resume would help me skip the black-hole application queue. Attached.
+
+      {% if skills %}Strongest in {{skills}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_12
+    subject: "Resume hand-off for {{role}}"
+    body: |
+      {{greeting}}
+
+      I'd be grateful for your help getting noticed for the {{role}} role at {{company}}. If you could pass my resume to the hiring team, I'd owe you one. Attached here.
+
+      {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_13
+    subject: "Quick one about the {{role}} opening"
+    body: |
+      {{greeting}}
+
+      Saw {{company}} posted {{role}}{% if job_url %} ({{job_url}}){% endif %} and it's exactly what I'm looking for. Any chance you could route my attached resume to whoever's hiring?
+
+      {% if skills %}Background: {{skills}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_14
+    subject: "Would mean a lot — forward for {{role}}"
+    body: |
+      {{greeting}}
+
+      I'll be direct: I want the {{role}} job at {{company}}, and a warm internal forward beats a cold application every time. Could you pass my resume along? Attached.
+
+      {% if recent_internship %}Just wrapped an internship at {{recent_internship}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_15
+    subject: "Sending my resume your way for {{role}}"
+    body: |
+      {{greeting}}
+
+      Attaching my resume in case you can get it to the {{role}} hiring team at {{company}}. Totally understand if the timing's off.
+
+      In a sentence: {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_16
+    subject: "Internal referral for {{role}}?"
+    body: |
+      {{greeting}}
+
+      Hoping to land the {{role}} role at {{company}} and would love your help getting my resume in front of the team. Attached for you to forward.
+
+      {% if linkedin %}More on my background here: {{linkedin}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_17
+    subject: "Small favor re: {{role}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      Could I ask you to circulate my resume internally for {{role}}? I think I'd add real value, and an inside forward would help it get seen. Attached.
+
+      {% if skills %}Sharpest in {{skills}}; {% endif %}{{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_18
+    subject: "Passing this to the right hands at {{company}}"
+    body: |
+      {{greeting}}
+
+      You'd be doing me a real solid by forwarding my resume to the {{role}} hiring manager at {{company}}. It's attached and ready to share.
+
+      {% if recent_internship %}Recent stint: {{recent_internship}}. {% endif %}{{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_19
+    subject: "Resume for the {{role}} team — share it?"
+    body: |
+      {{greeting}}
+
+      Quick request: if you know who's running the {{role}} search at {{company}}, would you forward my attached resume to them?
+
+      {% if github %}Code samples live at {{github}}.{% endif %} {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: circulate_resume_20
+    subject: "Help me reach the {{role}} hiring manager"
+    body: |
+      {{greeting}}
+
+      I'm applying for {{role}} at {{company}} and would love to get past the application pile. If you could pass my resume to the hiring manager, I'd appreciate it more than I can say. Attached.
+
+      {% if skills %}Core skills: {{skills}}.{% else %}{{top_highlight}}.{% endif %}
+
+      {{cta}}
+
+      {{signature}}

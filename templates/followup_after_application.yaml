@@ -1,0 +1,203 @@
+category: followup_after_application
+label: "Following up after application"
+templates:
+  - id: followup_after_application_01
+    subject: "Following up on my {{job_title}} application"
+    body: |
+      {{greeting}}
+
+      I applied for the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} a little while back, and I'm still very keen on it. My work on {{top_highlight}} feels closely aligned with what the team is building.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_02
+    subject: "{{job_title}} at {{company}} — still interested"
+    body: |
+      {{greeting}}
+
+      Quick note to flag that my interest in the {{job_title}} position{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} hasn't faded. I think my background in {{skills}} maps well to the role.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_03
+    subject: "Checking in on my application"
+    body: |
+      {{greeting}}
+
+      I submitted my application for the {{job_title}} role at {{company}} recently and wanted to reaffirm how much I'd like to contribute there. {{top_highlight}} is the kind of work I do best.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_04
+    subject: "Any update on the {{job_title}} role?"
+    body: |
+      {{greeting}}
+
+      Following up on my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. The role is a strong match for my experience with {{skills}}, and I'd be glad to take the next step.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_05
+    subject: "Reaffirming my interest in {{job_title}}"
+    body: |
+      {{greeting}}
+
+      A short follow-up on the {{job_title}} application I sent to {{company}}. I remain genuinely excited about it, especially given my experience with {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_06
+    subject: "{{job_title}} application — quick follow-up"
+    body: |
+      {{greeting}}
+
+      I wanted to make sure my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}} landed. I'm still very interested, and my work on {{top_highlight}} speaks to the fit.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_07
+    subject: "Still hoping to join the {{company}} team"
+    body: |
+      {{greeting}}
+
+      Touching base on my {{job_title}} application at {{company}}. Nothing has changed on my end — I'd love to be considered, and my strengths in {{skills}} are a close match.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_08
+    subject: "Following up: {{job_title}}"
+    body: |
+      {{greeting}}
+
+      Hoping to get a sense of where things stand with the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is directly relevant to what you're hiring for, and I'm eager to help.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_09
+    subject: "My {{job_title}} application at {{company}}"
+    body: |
+      {{greeting}}
+
+      Following up on the application I sent for {{job_title}} at {{company}}. I'm still very interested and confident my background in {{skills}} would add value to the team.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_10
+    subject: "A quick nudge on my application"
+    body: |
+      {{greeting}}
+
+      Just flagging my continued interest in the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is something I'm proud of and think relates well here.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_11
+    subject: "{{job_title}} — checking on status"
+    body: |
+      {{greeting}}
+
+      I applied for {{job_title}} at {{company}} not long ago and wanted to confirm I'm still keen. My experience with {{skills}} lines up nicely with the role.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_12
+    subject: "Reconnecting on the {{job_title}} opening"
+    body: |
+      {{greeting}}
+
+      Reaching out again about the {{job_title}} role{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. My interest is unchanged, and {{top_highlight}} is a good example of what I'd bring.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_13
+    subject: "Still excited about {{job_title}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      A brief follow-up on my {{job_title}} application. {{company}} is exactly where I'd like to do my next stretch of work, and my background in {{skills}} fits the brief.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_14
+    subject: "Following up on application {% if job_id %}{{job_id}}{% endif %}"
+    body: |
+      {{greeting}}
+
+      Checking in on my application for {{job_title}}{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I'm still very interested, and {{top_highlight}} reflects the kind of impact I aim for.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_15
+    subject: "Keen on the {{job_title}} role"
+    body: |
+      {{greeting}}
+
+      Writing to reaffirm my interest in the {{job_title}} position at {{company}}. My hands-on experience with {{skills}} feels like a natural match for the team.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_16
+    subject: "{{job_title}} at {{company}}: any news?"
+    body: |
+      {{greeting}}
+
+      Following up on the {{job_title}} application I submitted{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I'd still very much welcome the chance, and {{top_highlight}} shows where I can contribute.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_17
+    subject: "Brief follow-up on my application"
+    body: |
+      {{greeting}}
+
+      Wanted to stay on your radar regarding the {{job_title}} role at {{company}}. My interest is firm, and my strengths in {{skills}} match what the role calls for.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_18
+    subject: "Reaffirming interest — {{job_title}}"
+    body: |
+      {{greeting}}
+
+      Following up on my {{job_title}} application{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. I remain enthusiastic about the opportunity, with {{top_highlight}} as a clear point of fit.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_19
+    subject: "Touching base on {{job_title}}"
+    body: |
+      {{greeting}}
+
+      Hoping for a quick update on the {{job_title}} role at {{company}}. I'm still very interested, and my experience with {{skills}} would let me ramp up fast.
+
+      {{cta}}
+
+      {{signature}}
+  - id: followup_after_application_20
+    subject: "Following up — {{job_title}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      One more note to confirm my interest in the {{job_title}} position{% if job_id %} (Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is representative of the work I'd love to keep doing with your team.
+
+      {{cta}}
+
+      {{signature}}

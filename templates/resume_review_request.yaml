@@ -1,0 +1,226 @@
+category: resume_review_request
+label: "Resume Review Request"
+templates:
+  - id: resume_review_request_01
+    subject: "Quick favor: 60-second look at my resume?"
+    body: |
+      {{greeting}}
+
+      I'm targeting {{role}} roles and trying to get an honest read before I apply more widely. I've attached my resume{% if skills %} (heavy on {{skills}}){% endif %}.
+
+      Would you have a couple minutes to skim it and tell me what stands out or what falls flat?
+
+      {{signature}}
+
+  - id: resume_review_request_02
+    subject: "Resume gut-check from someone who's been there"
+    body: |
+      {{greeting}}
+
+      You've clearly done the {{role}} thing well, so your read would mean more than most. I've attached my resume.
+
+      {% if top_highlight %}I'm leaning on {{top_highlight}} as the headline{% else %}I'm not sure what to lead with{% endif %} - does that land, or am I burying something better?
+
+      {% if cta %}{{cta}}{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_03
+    subject: "Does my resume read like a real engineer's?"
+    body: |
+      {{greeting}}
+
+      I've been polishing my resume for {{role}} applications and I'm too close to it now. I've attached it here.
+
+      Mind flagging anything that reads vague or buzzwordy? Even one line of feedback helps.
+
+      {{signature}}
+
+  - id: resume_review_request_04
+    subject: "Would my background even make the cut?"
+    body: |
+      {{greeting}}
+
+      Before I spend more weekends applying, I'd love a reality check on whether my profile fits {{role}} work. Resume's attached.
+
+      {% if skills %}Most of my time has gone into {{skills}}.{% endif %} Honest take welcome - I can handle it.
+
+      {{signature}}
+
+  - id: resume_review_request_05
+    subject: "One pair of eyes on my resume?"
+    body: |
+      {{greeting}}
+
+      I'm in the thick of a job search for {{role}} and could use a second opinion from someone who actually screens these. I've attached mine.
+
+      {% if recent_internship %}I just wrapped {{recent_internship}} and want to make sure it's framed right.{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_06
+    subject: "Quick feedback before I hit send?"
+    body: |
+      {{greeting}}
+
+      I keep tweaking my resume for {{role}} positions and need someone to tell me when to stop. I've attached the current version.
+
+      {% if top_highlight %}I'm hoping {{top_highlight}} carries it{% else %}Not sure the top half is strong enough{% endif %} - does it?
+
+      {{signature}}
+
+  - id: resume_review_request_07
+    subject: "Trying not to send a forgettable resume"
+    body: |
+      {{greeting}}
+
+      I want my resume to actually stick when I apply for {{role}} roles, and I suspect it doesn't yet. I've attached it.
+
+      What's the first thing your eye skips over? That's the part I need to fix.
+
+      {{signature}}
+
+  - id: resume_review_request_08
+    subject: "Fit check for {{role}}"
+    body: |
+      {{greeting}}
+
+      I'm weighing whether to chase {{role}} openings or aim elsewhere, and your honest read would settle it. Resume attached.
+
+      {% if skills %}Core stack: {{skills}}.{% endif %} Do you see a fit, or a gap I should close first?
+
+      {% if cta %}{{cta}}{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_09
+    subject: "Mind tearing this resume apart a little?"
+    body: |
+      {{greeting}}
+
+      I'd rather hear it from you than from a rejection email. I've attached my resume for {{role}} roles - feel free to be blunt.
+
+      {% if recent_internship %}The {{recent_internship}} bullet is the one I'm least sure about.{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_10
+    subject: "Does the top of my resume earn a second read?"
+    body: |
+      {{greeting}}
+
+      Recruiters spend seconds on the first third, so I want that part sharp for {{role}} applications. I've attached mine.
+
+      {% if top_highlight %}I led with {{top_highlight}}.{% endif %} Would that make you keep reading?
+
+      {{signature}}
+
+  - id: resume_review_request_11
+    subject: "Short ask: skim my resume?"
+    body: |
+      {{greeting}}
+
+      No long story here - I'm applying for {{role}} roles and want a quick sanity check. Resume's attached.
+
+      One honest sentence on what to improve would genuinely help.
+
+      {{signature}}
+
+  - id: resume_review_request_12
+    subject: "Am I underselling myself here?"
+    body: |
+      {{greeting}}
+
+      A few people said my resume sounds too modest for {{role}} work. I've attached it - curious if you agree.
+
+      {% if skills %}I've shipped real things with {{skills}}, but the page doesn't show it.{% endif %} Where would you push harder?
+
+      {{signature}}
+
+  - id: resume_review_request_13
+    subject: "Resume feedback from a {{role}} insider"
+    body: |
+      {{greeting}}
+
+      You know what {{role}} hiring managers actually look for, which is exactly what I'm missing. I've attached my resume.
+
+      {% if cta %}{{cta}}{% else %}Even quick notes in the margins would be gold.{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_14
+    subject: "Is my resume saying the right things?"
+    body: |
+      {{greeting}}
+
+      I'm worried my resume talks about tasks instead of impact for {{role}} roles. I've attached it.
+
+      {% if top_highlight %}Does {{top_highlight}} come across as a result or just a duty?{% endif %} That distinction is tripping me up.
+
+      {{signature}}
+
+  - id: resume_review_request_15
+    subject: "Career-switcher resume - does it translate?"
+    body: |
+      {{greeting}}
+
+      I'm moving toward {{role}} and need to know if my background reads as relevant or as a stretch. Resume attached.
+
+      {% if skills %}I picked up {{skills}} along the way - is that enough signal?{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_16
+    subject: "Two minutes for an early-career resume?"
+    body: |
+      {{greeting}}
+
+      I'm early in my path toward {{role}} and don't have a long track record to lean on yet. I've attached my resume.
+
+      {% if recent_internship %}{{recent_internship}} is most of what I've got - how do I make it count?{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_17
+    subject: "What would make you reject this resume?"
+    body: |
+      {{greeting}}
+
+      Flipping the usual question: if my resume crossed your desk for a {{role}} role, what would make you pass? I've attached it.
+
+      Knowing the dealbreakers helps me more than the compliments.
+
+      {{signature}}
+
+  - id: resume_review_request_18
+    subject: "Trimming my resume - what stays?"
+    body: |
+      {{greeting}}
+
+      I'm trying to cut my resume to one tight page for {{role}} applications and I'm attached to everything. I've attached the current draft.
+
+      {% if top_highlight %}{{top_highlight}} obviously stays - but what would you drop?{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_19
+    subject: "Sanity check before a big batch of applications"
+    body: |
+      {{greeting}}
+
+      I'm about to send my resume to a handful of {{role}} openings and want to fix any obvious misses first. It's attached.
+
+      {% if skills %}Built mostly around {{skills}}.{% endif %} {% if cta %}{{cta}}{% endif %}
+
+      {{signature}}
+
+  - id: resume_review_request_20
+    subject: "Would you hire off this resume?"
+    body: |
+      {{greeting}}
+
+      Simple question: based on the attached resume, would you shortlist me for a {{role}} role? I've attached it.
+
+      {% if recent_internship %}{{recent_internship}} is my strongest card{% else %}I'm not sure my strongest point is obvious{% endif %} - and if not, why?
+
+      {{signature}}

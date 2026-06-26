@@ -1,0 +1,215 @@
+category: referral_request
+label: "Referral Request"
+templates:
+  - id: referral_request_01
+    subject: "Referral for the {{role}} role at {{company}}"
+    body: |
+      {{greeting}}
+
+      I came across the {{role}} opening at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and noticed you work there. I'm {{candidate_name}}, and my background lines up closely with what the team is looking for, including {{top_highlight}}.
+
+      Would you be open to referring me, or pointing me to the right person? Happy to send over anything that would help: {{linkedin}}.
+
+      {{signature}}
+  - id: referral_request_02
+    subject: "Quick ask about {{company}}"
+    body: |
+      {{greeting}}
+
+      I'm applying for the {{job_title}} position at {{company}} and saw that you're on the team. My recent work includes {{recent_internship}}, and I've spent a lot of time with {{skills}}.
+
+      {{cta}}
+
+      {{signature}}
+  - id: referral_request_03
+    subject: "Would you refer me for {{role}}?"
+    body: |
+      {{greeting}}
+
+      Reaching out because {{company}} has an opening for {{role}} {% if job_id %}(Job ID {{job_id}}) {% endif %}that fits my experience well. A few things that stand out from my background:
+
+      {{resume_highlights}}
+
+      If it feels right, I'd really appreciate a referral. The posting is here: {{job_url}}.
+
+      {{signature}}
+  - id: referral_request_04
+    subject: "{{role}} at {{company}} - referral request"
+    body: |
+      {{greeting}}
+
+      Your name came up when I was looking into the {{role}} team at {{company}}. I'm {{candidate_name}}; most recently I worked on {{recent_internship}}.
+
+      Would a referral be something you'd consider? You can get a quick read on me here: {{github}}.
+
+      {{signature}}
+  - id: referral_request_05
+    subject: "Hoping for a referral - {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I've been following {{company}} for a while and the {{job_title}} role finally felt like the right fit. {{top_highlight}}
+
+      {{cta}}
+
+      {{signature}}
+  - id: referral_request_06
+    subject: "Connecting about {{role}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      Short version: I'm applying for {{role}} at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and would value a referral from someone on the inside.
+
+      My strengths are in {{skills}}, and {{top_highlight}}. If you'd like the full picture, my portfolio is at {{portfolio}}.
+
+      Either way, thanks for taking a look.
+
+      {{signature}}
+  - id: referral_request_07
+    subject: "A referral ask for {{company}}"
+    body: |
+      {{greeting}}
+
+      I noticed the {{job_title}} listing at {{company}} and that you're already there. I'm {{candidate_name}} and I think my experience maps well, especially {{recent_internship}}.
+
+      Would you be willing to put in a referral for me?
+
+      {{signature}}
+  - id: referral_request_08
+    subject: "{{role}} role - quick question"
+    body: |
+      {{greeting}}
+
+      The {{role}} opening at {{company}} caught my eye, and seeing you on the team made me want to reach out directly.
+
+      A bit about me: {{top_highlight}} I've worked closely with {{skills}}. {{cta}}
+
+      {{signature}}
+  - id: referral_request_09
+    subject: "Could you refer me to {{company}}?"
+    body: |
+      {{greeting}}
+
+      I'm {{candidate_name}}, applying for {{job_title}} at {{company}}. Here's a snapshot of where I've spent my time:
+
+      {{resume_highlights}}
+
+      A referral would mean a lot. Posting link, in case it's useful: {{job_url}}.
+
+      {{signature}}
+  - id: referral_request_10
+    subject: "Referral for {{role}}?"
+    body: |
+      {{greeting}}
+
+      Quick one: {{company}} is hiring for {{role}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and I'd love a referral if you're open to it. Most recently I did {{recent_internship}}.
+
+      {{cta}}
+
+      {{signature}}
+  - id: referral_request_11
+    subject: "Interested in {{job_title}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      I'll keep this brief. I'm {{candidate_name}}, going after the {{job_title}} role at {{company}}, and your name came up as a good person to ask about a referral.
+
+      What I bring: {{skills}}, plus {{top_highlight}} You can find more at {{linkedin}}.
+
+      {{signature}}
+  - id: referral_request_12
+    subject: "Asking about a referral - {{role}}"
+    body: |
+      {{greeting}}
+
+      Saw the {{role}} role open up at {{company}} and figured I'd reach out before applying cold. {{recent_internship}}
+
+      If my background looks like a fit, would you refer me? More here: {{github}}.
+
+      {{signature}}
+  - id: referral_request_13
+    subject: "{{company}} {{role}} - would appreciate a referral"
+    body: |
+      {{greeting}}
+
+      I'm exploring the {{role}} position at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and noticed we'd be a good match in terms of skills, mainly {{skills}}.
+
+      {{top_highlight}}
+
+      {{cta}}
+
+      {{signature}}
+  - id: referral_request_14
+    subject: "Referral request for {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I'm reaching out about the {{job_title}} role at {{company}}. I'm {{candidate_name}}, and I've built up real experience in {{skills}} over the last few years.
+
+      Would you consider referring me? Glad to share whatever helps you decide: {{portfolio}}.
+
+      {{signature}}
+  - id: referral_request_15
+    subject: "Quick note re: {{role}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      {{top_highlight}} That's a big part of why the {{role}} opening at {{company}} stood out to me.
+
+      Seeing that you're on the team, I wanted to ask directly: would a referral be possible? {{cta}}
+
+      {{signature}}
+  - id: referral_request_16
+    subject: "Hoping you can help - {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I'm applying for {{job_title}} at {{company}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and a referral from someone who knows the place would go a long way.
+
+      Recent work: {{recent_internship}}. A few more highlights below.
+
+      {{resume_highlights}}
+
+      {{signature}}
+  - id: referral_request_17
+    subject: "{{role}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      I'm {{candidate_name}}. The {{role}} team at {{company}} is doing work I'd genuinely like to be part of, and I'm putting in an application.
+
+      Would you be open to referring me? My profile: {{linkedin}}.
+
+      {{signature}}
+  - id: referral_request_18
+    subject: "A small favor - referral for {{role}}"
+    body: |
+      {{greeting}}
+
+      Long story short, I'm chasing the {{role}} opening at {{company}} and could use a referral. My experience centers on {{skills}}, and {{top_highlight}}
+
+      {{cta}}
+
+      {{signature}}
+  - id: referral_request_19
+    subject: "Would value your referral - {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I noticed {{company}} is hiring a {{job_title}} {% if job_id %}(Job ID {{job_id}}) {% endif %}and that you'd be a great person to ask. Here's what I've been up to:
+
+      {{resume_highlights}}
+
+      If you think I'd fit, a referral would help a lot. Posting: {{job_url}}.
+
+      {{signature}}
+  - id: referral_request_20
+    subject: "Referral ask - {{role}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      I'm {{candidate_name}}, applying for {{role}} at {{company}}. {{recent_internship}}, and I've worked heavily with {{skills}}.
+
+      Open to referring me, or sending me toward the right contact? You can check out my work at {{github}}.
+
+      {{signature}}

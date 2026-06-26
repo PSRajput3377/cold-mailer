@@ -1,0 +1,147 @@
+# =============================================================================
+# Cold Mailer — Central Configuration
+# -----------------------------------------------------------------------------
+# Everything that controls behaviour lives here. Secrets (passwords, API keys)
+# should NOT be hard-coded — reference environment variables with the
+# `${ENV_VAR}` syntax and put the real values in a local `.env` file (which is
+# git-ignored). Example:  password: "${GMAIL_APP_PASSWORD}"
+# =============================================================================
+
+# --- Identity used in the From header and signature ------------------------
+sender:
+  name: "Your Name"
+  email: "you@gmail.com"
+  signature: |
+    Best,
+    Your Name
+    {{phone}} · {{portfolio}}
+  phone: "+1-000-000-0000"
+
+# --- Active email provider --------------------------------------------------
+# One of: gmail | outlook | sendgrid | ses | graph
+provider: "gmail"
+
+# --- Provider connection details -------------------------------------------
+# Only the block matching `provider` above needs to be filled in.
+providers:
+  gmail:
+    host: "smtp.gmail.com"
+    port: 587
+    use_tls: true
+    username: "${GMAIL_USERNAME}"
+    password: "${GMAIL_APP_PASSWORD}"   # use a Google App Password, not your login
+
+  outlook:
+    host: "smtp.office365.com"
+    port: 587
+    use_tls: true
+    username: "${OUTLOOK_USERNAME}"
+    password: "${OUTLOOK_PASSWORD}"
+
+  sendgrid:
+    api_key: "${SENDGRID_API_KEY}"
+
+  ses:
+    region: "us-east-1"
+    access_key_id: "${AWS_ACCESS_KEY_ID}"
+    secret_access_key: "${AWS_SECRET_ACCESS_KEY}"
+
+  graph:
+    tenant_id: "${MS_TENANT_ID}"
+    client_id: "${MS_CLIENT_ID}"
+    client_secret: "${MS_CLIENT_SECRET}"
+    sender_user_id: "${MS_SENDER_USER_ID}"  # the mailbox UPN/objectId to send as
+
+# --- Email verification -----------------------------------------------------
+verification:
+  enabled: true
+  # Strategy: "smtp" (free MX/RCPT probe) | "api" (third-party) | "none"
+  strategy: "smtp"
+  # When strategy == "api", configure one of the supported services.
+  api:
+    service: "abstract"          # abstract | hunter | neverbounce
+    api_key: "${EMAIL_VERIFY_API_KEY}"
+  # Treat "unknown"/"catch-all" results as valid (true) or skip them (false).
+  accept_risky: false
+
+# --- Rate limiting & retries -----------------------------------------------
+rate_limit:
+  emails_per_hour: 30
+  seconds_between_emails: 45      # base delay; jitter is added automatically
+  max_per_run: 100
+retry:
+  max_attempts: 3
+  backoff_seconds: 5             # exponential: 5, 10, 20 ...
+
+# --- Domain resolution (Step 2) --------------------------------------------
+domain_resolution:
+  enabled: true
+  # Preferred TLD order when guessing / validating a company domain.
+  tld_priority: ["com", "ai", "io", "co", "in", "dev", "net", "org"]
+  # Use Clearbit's free autocomplete endpoint to map company name -> domain.
+  use_clearbit_autocomplete: true
+
+# --- Email-format generation (Step 1) --------------------------------------
+email_formats:
+  # TLDs appended to the resolved/guessed domain root for permutations.
+  tlds: ["com", "in", "ai", "co", "io", "dev", "net"]
+  # Cap to avoid combinatorial explosion when probing.
+  max_candidates: 60
+
+# --- Templates & personalization -------------------------------------------
+templates:
+  directory: "templates"
+  # Which categories are eligible. Empty list => all.
+  enabled_categories: []
+personalization:
+  enabled: true
+  vary_greeting: true
+  vary_closing: true
+  vary_sentence_order: true
+  # Deterministic output per-recipient if a seed is set (useful for testing).
+  seed: null
+
+# --- Attachments (Step 12) --------------------------------------------------
+attachments:
+  resume: "assets/resume.pdf"
+  cover_letter: null
+  transcript: null
+  portfolio_pdf: null
+  # Attach the resume by default; others only when a path is set.
+  attach_resume: true
+
+# --- Logging (Step 10) ------------------------------------------------------
+logging:
+  directory: "logs"
+  level: "INFO"
+  files:
+    sent: "emails_sent.csv"
+    failed: "emails_failed.csv"
+    verified: "verified_addresses.csv"
+    duplicates: "duplicate_addresses.csv"
+    replies: "reply_tracking.csv"
+
+# --- AI-generated emails (optional) ----------------------------------------
+# When enabled, emails are written by Claude tailored to each recipient and the
+# scraped job description, falling back to the template engine on any failure.
+ai:
+  enabled: false
+  model: "claude-opus-4-8"
+  effort: "medium"            # low | medium | high
+  max_tokens: 1024
+  api_key: "${ANTHROPIC_API_KEY}"   # or leave blank to use the env var directly
+
+# --- Job-board scraping (optional) -----------------------------------------
+# Pull open roles from a company's ATS to auto-populate job_title/job_id/job_url
+# (and feed the AI generator the real job description).
+job_sources:
+  enabled: false
+  # vendor: greenhouse | lever | ashby
+  # board_token: the company's slug on that ATS (e.g. "stripe")
+  # Per-recipient overrides can also be supplied in the recipients CSV.
+  default_vendor: null
+  fetch_description: true     # pull full JD text (used by the AI generator)
+  match_keywords: ["Software Engineer", "Backend", "Full-Stack", "SDE", "New Grad"]
+
+# --- Safety -----------------------------------------------------------------
+dry_run: true   # when true, nothing is actually sent — emails are logged only

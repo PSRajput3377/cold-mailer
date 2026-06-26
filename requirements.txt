@@ -1,0 +1,18 @@
+# --- Core ---
+PyYAML>=6.0.1            # config.yaml parsing
+requests>=2.31.0         # HTTP for domain resolution, verification APIs, SendGrid/Graph
+beautifulsoup4>=4.12.0   # HTML parsing (domain resolution / future scraping)
+pandas>=2.1.0            # CSV log management
+python-dotenv>=1.0.0     # load secrets from .env into the environment
+Jinja2>=3.1.0            # safe, powerful templating for {{ placeholders }}
+
+# --- Resume / attachment parsing ---
+pypdf>=4.0.0             # extract text + highlights from the resume PDF
+
+# --- Optional provider SDKs (only needed if you enable that provider) ---
+# sendgrid>=6.11.0       # SendGrid provider
+# boto3>=1.34.0          # AWS SES provider
+# msal>=1.28.0           # Microsoft Graph OAuth
+
+# --- Optional AI personalization (future / Step "AI-generated emails") ---
+# anthropic>=0.39.0      # AI-generated personalized emails using Claude

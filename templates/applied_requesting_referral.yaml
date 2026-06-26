@@ -1,0 +1,222 @@
+category: applied_requesting_referral
+label: "Applied already and requesting referral"
+templates:
+  - id: applied_requesting_referral_01
+    subject: "Applied to {{job_title}} — quick referral ask"
+    body: |
+      {{greeting}}
+
+      I recently applied to the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and wanted to reach out directly. With my background in {{skills}}, I think I'd be a strong fit, and a referral from you would mean a lot in getting my application a closer look.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_02
+    subject: "Would you put in a word? {{job_title}} application"
+    body: |
+      {{greeting}}
+
+      Just submitted my application for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. {{top_highlight}} is the kind of work I'd love to bring to the team. If you're comfortable, a quick referral would help my resume rise above the pile.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_03
+    subject: "Following up on my {{company}} application"
+    body: |
+      {{greeting}}
+
+      I applied for the {{job_title}} position {% if job_id %}(Job ID {{job_id}}){% endif %} a few days ago and figured I'd be honest about why I'm messaging: a referral from someone on the inside goes a long way. My strengths in {{skills}} line up closely with what the role needs.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_04
+    subject: "Quick ask re: {{job_title}} at {{company}}"
+    body: |
+      {{greeting}}
+
+      Short version: I've already applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}, and I'd be grateful if you could flag my application internally. {{top_highlight}}, which I think speaks to the role.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_05
+    subject: "Hoping for a referral — {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I put in an application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} this week. I know how much weight an internal referral carries, so I wanted to ask directly. My experience with {{skills}} maps well to what you're hiring for.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_06
+    subject: "My application is in — any chance you'd refer me?"
+    body: |
+      {{greeting}}
+
+      My application for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} is officially submitted. If it's not too much to ask, a referral from you could really help it stand out. Quick on my fit: {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_07
+    subject: "Referral request for {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I recently applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and was hoping you might be able to refer me or put in a good word. I bring solid experience in {{skills}}, and I'd be happy to share more if it's useful.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_08
+    subject: "Small favor — {{company}} application"
+    body: |
+      {{greeting}}
+
+      I'll keep this brief: I've applied for the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and would really appreciate a referral if you're willing. {{top_highlight}}, so I'm confident I could contribute quickly.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_09
+    subject: "Already applied — can you help it get noticed?"
+    body: |
+      {{greeting}}
+
+      Application is in for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. Applications can disappear into the void, so I'm reaching out to ask if you'd refer me internally. My work in {{skills}} is right in line with the role.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_10
+    subject: "{{job_title}} at {{company}} — referral ask"
+    body: |
+      {{greeting}}
+
+      I submitted my application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. Given your connection to the team, a quick referral would help enormously. For context, {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_11
+    subject: "Could you vouch for my {{job_title}} application?"
+    body: |
+      {{greeting}}
+
+      I applied for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and wanted to ask if you'd be open to referring me. I've spent a good amount of time building skills in {{skills}}, which match what the posting is after.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_12
+    subject: "Reaching out about my {{company}} application"
+    body: |
+      {{greeting}}
+
+      My application for the {{job_title}} position {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} went in recently. A referral from you would give it a much better shot at being reviewed. Briefly on fit: {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_13
+    subject: "Referral nudge for {{job_title}}?"
+    body: |
+      {{greeting}}
+
+      I've applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and I'm hoping for a small nudge — would you be willing to refer me? My background in {{skills}} fits the role well, and I'd love the chance to interview.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_14
+    subject: "Just applied — a referral would mean a lot"
+    body: |
+      {{greeting}}
+
+      I just finished applying for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. If you're comfortable referring me, it would genuinely help my application get seen. {{top_highlight}}, which feels relevant here.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_15
+    subject: "Asking directly: referral for {{job_title}}"
+    body: |
+      {{greeting}}
+
+      Rather than hope my application gets noticed, I figured I'd ask you directly. I applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}, and a referral would carry real weight. My experience in {{skills}} lines up with the role.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_16
+    subject: "Help my {{company}} application stand out?"
+    body: |
+      {{greeting}}
+
+      I applied for {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and would love your help getting it in front of the right people. {{top_highlight}}, and I think I'd add value to the team quickly.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_17
+    subject: "Referral request — {{job_title}} role"
+    body: |
+      {{greeting}}
+
+      Wanted to let you know I've applied for the {{job_title}} opening {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. If you'd be open to referring me, I'd be truly grateful. On the skills front, I'm strong in {{skills}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_18
+    subject: "Would value your referral for {{job_title}}"
+    body: |
+      {{greeting}}
+
+      I recently applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}}. I'd value a referral from you to help the application get the attention it needs. Quick note on fit: {{top_highlight}}.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_19
+    subject: "Applied at {{company}} — open to referring me?"
+    body: |
+      {{greeting}}
+
+      My application for the {{job_title}} role {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} is submitted. I know referrals make a difference, so I wanted to ask if you'd be willing. My background in {{skills}} aligns closely with the position.
+
+      {{cta}}
+
+      {{signature}}
+
+  - id: applied_requesting_referral_20
+    subject: "A good word for my {{job_title}} application?"
+    body: |
+      {{greeting}}
+
+      I've applied to {{job_title}} {% if job_id %}(Job ID {{job_id}}){% endif %} at {{company}} and am reaching out to ask if you might put in a good word. {{top_highlight}}, so I'm hopeful I'd be a strong addition to the team.
+
+      {{cta}}
+
+      {{signature}}

@@ -1,0 +1,203 @@
+category: informational_chat
+label: "Request for informational chat"
+templates:
+  - id: informational_chat_01
+    subject: "15 minutes to learn about {{company}}?"
+    body: |
+      {{greeting}}
+
+      I've been following the {{role}} work at {{company}} and I'm genuinely curious how the team approaches it day to day.
+
+      {% if recent_internship %}I recently wrapped up {{recent_internship}}, and I'm trying to learn from people doing this for real.{% endif %} Would you be open to a quick 15-minute call sometime? No agenda beyond hearing about your experience.
+
+      {{signature}}
+  - id: informational_chat_02
+    subject: "Coffee chat about engineering at {{company}}?"
+    body: |
+      {{greeting}}
+
+      Not asking about any specific opening here, just trying to understand what engineering culture is actually like at {{company}} from someone inside it.
+
+      {% if skills %}My background is mostly in {{skills}}, so I'd love to hear how those things show up in your {{role}} work.{% endif %} Could I grab 15 minutes of your time, virtual coffee or otherwise?
+
+      {{signature}}
+  - id: informational_chat_03
+    subject: "Quick question about your team"
+    body: |
+      {{greeting}}
+
+      {{first_name}}, I keep running into {{company}} when I read about good {{role}} teams, and I'd rather hear it from a person than a blog post.
+
+      {% if top_highlight %}For context, {{top_highlight}}.{% endif %} Any chance you'd spare 15 minutes to tell me what the work really looks like? Totally fine if not.
+
+      {{signature}}
+  - id: informational_chat_04
+    subject: "Learning about {{role}} work at {{company}}"
+    body: |
+      {{greeting}}
+
+      I'm trying to figure out where I want to take my career, and {{company}}'s {{role}} team keeps coming up as a place doing it well.
+
+      Would a short 15-minute chat work for you? I just want to understand how the team operates and what you've enjoyed about being there.{% if linkedin %} A bit about me is here: {{linkedin}}.{% endif %}
+
+      {{signature}}
+  - id: informational_chat_05
+    subject: "Hoping to hear about your work"
+    body: |
+      {{greeting}}
+
+      Cold note, so I'll keep it short. I admire what {{company}} is building and I'm curious what the engineering side feels like behind the scenes.
+
+      {% if recent_internship %}I just finished {{recent_internship}} and I'm hungry to learn from people further along.{% endif %} Would 15 minutes on a call work for you in the next couple of weeks?
+
+      {{signature}}
+  - id: informational_chat_06
+    subject: "A small ask about {{company}}"
+    body: |
+      {{greeting}}
+
+      I'm not job hunting at you, promise. I'm just trying to get an honest sense of how {{role}} teams run at {{company}}.
+
+      {% if skills %}I've been working with {{skills}}, and I'd love to know how that maps to your stack.{% endif %} If you've got 15 minutes for a quick chat, I'd really appreciate it.
+
+      {{signature}}
+  - id: informational_chat_07
+    subject: "Curious about engineering culture there"
+    body: |
+      {{greeting}}
+
+      What got me to write was a simple question: what's it actually like to do {{role}} work at {{company}}?
+
+      {% if top_highlight %}I come at this with some experience, {{top_highlight}}, but I learn most from conversations.{% endif %} Could we do 15 minutes whenever suits you? I'll work around your calendar.
+
+      {{signature}}
+  - id: informational_chat_08
+    subject: "15 min to talk shop?"
+    body: |
+      {{greeting}}
+
+      {{first_name}}, I'd love to talk shop for 15 minutes about how {{company}} approaches {{role}}, the parts that surprised you, the parts you'd change.
+
+      {% if github %}You can see what I've been tinkering with here: {{github}}.{% endif %} No pressure at all if your week is full.
+
+      {{signature}}
+  - id: informational_chat_09
+    subject: "Hoping to learn from someone at {{company}}"
+    body: |
+      {{greeting}}
+
+      I'd much rather learn about {{company}} from a real engineer than from the careers page, which is why I'm reaching out to you directly.
+
+      {% if recent_internship %}After {{recent_internship}}, I'm trying to figure out what kind of team I thrive on.{% endif %} Would 15 minutes work? I'm happy to send a few questions ahead so we don't waste any of it.
+
+      {{signature}}
+  - id: informational_chat_10
+    subject: "Short chat about your day-to-day?"
+    body: |
+      {{greeting}}
+
+      I'm curious what a normal day looks like for a {{role}} at {{company}}, the kind of thing you only really learn by asking.
+
+      {% if skills %}I've spent most of my time on {{skills}} so far.{% endif %} If you can spare 15 minutes, I'd love to hear your perspective. If not, no worries at all.
+
+      {{signature}}
+  - id: informational_chat_11
+    subject: "Mind if I ask about {{company}}?"
+    body: |
+      {{greeting}}
+
+      Quick and honest: I'm trying to choose my next step carefully, and hearing how engineering really works at {{company}} would help a lot.
+
+      {% if portfolio %}A little of my work lives here if it's useful context: {{portfolio}}.{% endif %} Would you be up for a 15-minute chat sometime soon?
+
+      {{signature}}
+  - id: informational_chat_12
+    subject: "Learning, not pitching"
+    body: |
+      {{greeting}}
+
+      This isn't a pitch, I just want to understand the {{role}} side of {{company}} from someone who lives it.
+
+      {% if top_highlight %}For a bit of context, {{top_highlight}}.{% endif %} Could I borrow 15 minutes of your time? I'll keep it tight and come with real questions.
+
+      {{signature}}
+  - id: informational_chat_13
+    subject: "How does {{company}} really build things?"
+    body: |
+      {{greeting}}
+
+      I read a lot about how teams ship software, but I learn the most from talking to people actually doing it, like the {{role}} folks at {{company}}.
+
+      {% if skills %}My own work leans toward {{skills}}.{% endif %} Any chance you'd give me 15 minutes to hear how your team operates? Genuinely just curious.
+
+      {{signature}}
+  - id: informational_chat_14
+    subject: "A quick chat when you have time"
+    body: |
+      {{greeting}}
+
+      No rush on this, but I'd love a short conversation about what the {{role}} experience is like at {{company}}.
+
+      {% if recent_internship %}I just came off {{recent_internship}} and I'm trying to learn where to go next.{% endif %} Fifteen minutes whenever your schedule allows would mean a lot.
+
+      {{signature}}
+  - id: informational_chat_15
+    subject: "Curious engineer reaching out"
+    body: |
+      {{greeting}}
+
+      I'll be upfront: I'm a curious engineer trying to understand teams I admire, and {{company}} is on that short list.
+
+      {% if linkedin %}Here's a bit about me so I'm not a stranger: {{linkedin}}.{% endif %} Would 15 minutes on a call work for you? I'm flexible on time and format.
+
+      {{signature}}
+  - id: informational_chat_16
+    subject: "Worth 15 minutes of your time?"
+    body: |
+      {{greeting}}
+
+      {{first_name}}, I know your time is tight, so I'll ask for just 15 minutes to hear what {{role}} work at {{company}} is actually like.
+
+      {% if github %}If it helps, here's where I keep my projects: {{github}}.{% endif %} Totally understand if you can't, but I'd be grateful for the chance.
+
+      {{signature}}
+  - id: informational_chat_17
+    subject: "Trying to understand great teams"
+    body: |
+      {{greeting}}
+
+      I've been studying what makes engineering teams great, and {{company}} comes up often enough that I wanted to ask someone directly.
+
+      {% if top_highlight %}A quick note on me: {{top_highlight}}.{% endif %} Could we do a 15-minute chat about how your {{role}} team works? Whatever you can share would help.
+
+      {{signature}}
+  - id: informational_chat_18
+    subject: "An informal chat about {{company}}"
+    body: |
+      {{greeting}}
+
+      I'd love an informal, low-stakes chat about life as a {{role}} at {{company}}, the good, the messy, all of it.
+
+      {% if skills %}I tend to work in {{skills}}, so I'm especially curious how your team makes decisions there.{% endif %} Fifteen minutes whenever suits you would be plenty.
+
+      {{signature}}
+  - id: informational_chat_19
+    subject: "From someone who admires your team"
+    body: |
+      {{greeting}}
+
+      I keep hearing good things about how {{company}} runs engineering, and I'd love to understand it firsthand rather than from the outside.
+
+      {% if recent_internship %}I recently finished {{recent_internship}}, which made me realize how much team culture matters to me.{% endif %} Would you have 15 minutes for a quick conversation?
+
+      {{signature}}
+  - id: informational_chat_20
+    subject: "15 minutes, real talk about the work"
+    body: |
+      {{greeting}}
+
+      I'd rather hear the unvarnished version of {{role}} work at {{company}} than the polished one, which is why I'm asking an actual engineer.
+
+      {% if portfolio %}Some of what I've built is here if you're curious: {{portfolio}}.{% endif %} If you can spare 15 minutes, I promise to make it worth the time. {{cta}}
+
+      {{signature}}
