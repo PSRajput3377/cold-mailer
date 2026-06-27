@@ -12,9 +12,12 @@ sender:
   name: "Your Name"
   email: "you@gmail.com"
   signature: |
-    Best,
+    Best regards,
+
     {{candidate_name}}
-    {{phone}} · {{linkedin}} · {{github}}
+    📧 {{candidate_email}}
+    📞 {{phone}}
+    LinkedIn: {{linkedin}}
   phone: "+1-000-000-0000"
 
 # --- Active email provider --------------------------------------------------
@@ -29,7 +32,7 @@ providers:
     port: 587
     use_tls: true
     username: "${GMAIL_USERNAME}"
-    password: "${GMAIL_APP_PASSWORD}"   # use a Google App Password, not your login
+    password: "${GMAIL_APP_PASSWORD}" # use a Google App Password, not your login
 
   outlook:
     host: "smtp.office365.com"
@@ -50,28 +53,28 @@ providers:
     tenant_id: "${MS_TENANT_ID}"
     client_id: "${MS_CLIENT_ID}"
     client_secret: "${MS_CLIENT_SECRET}"
-    sender_user_id: "${MS_SENDER_USER_ID}"  # the mailbox UPN/objectId to send as
+    sender_user_id: "${MS_SENDER_USER_ID}" # the mailbox UPN/objectId to send as
 
 # --- Email verification -----------------------------------------------------
 verification:
   enabled: true
   # Strategy: "smtp" (free MX/RCPT probe) | "api" (third-party) | "none"
-  strategy: "none"   # use "smtp" later for deliverability checks (slower)
+  strategy: "none" # use "smtp" later for deliverability checks (slower)
   # When strategy == "api", configure one of the supported services.
   api:
-    service: "abstract"          # abstract | hunter | neverbounce
+    service: "abstract" # abstract | hunter | neverbounce
     api_key: "${EMAIL_VERIFY_API_KEY}"
   # Treat "unknown"/"catch-all" results as valid (true) or skip them (false).
-  accept_risky: true   # needed when strategy is "none" or for catch-all domains
+  accept_risky: true # needed when strategy is "none" or for catch-all domains
 
 # --- Rate limiting & retries -----------------------------------------------
 rate_limit:
   emails_per_hour: 30
-  seconds_between_emails: 45      # base delay; jitter is added automatically
+  seconds_between_emails: 45 # base delay; jitter is added automatically
   max_per_run: 100
 retry:
   max_attempts: 3
-  backoff_seconds: 5             # exponential: 5, 10, 20 ...
+  backoff_seconds: 5 # exponential: 5, 10, 20 ...
 
 # --- Domain resolution (Step 2) --------------------------------------------
 domain_resolution:
@@ -91,13 +94,13 @@ email_formats:
 # --- Templates & personalization -------------------------------------------
 templates:
   directory: "templates"
-  # Which categories are eligible. Empty list => all.
-  enabled_categories: []
+  # professional_application = HR/Recruiter | referral_request = employees for referrals
+  enabled_categories: ["professional_application", "referral_request"]
 personalization:
   enabled: true
-  vary_greeting: true
-  vary_closing: true
-  vary_sentence_order: true
+  vary_greeting: false
+  vary_closing: false
+  vary_sentence_order: false
   # Deterministic output per-recipient if a seed is set (useful for testing).
   seed: null
 
@@ -127,9 +130,9 @@ logging:
 ai:
   enabled: false
   model: "claude-opus-4-8"
-  effort: "medium"            # low | medium | high
+  effort: "medium" # low | medium | high
   max_tokens: 1024
-  api_key: "${ANTHROPIC_API_KEY}"   # or leave blank to use the env var directly
+  api_key: "${ANTHROPIC_API_KEY}" # or leave blank to use the env var directly
 
 # --- Job-board scraping (optional) -----------------------------------------
 # Pull open roles from a company's ATS to auto-populate job_title/job_id/job_url
@@ -140,8 +143,9 @@ job_sources:
   # board_token: the company's slug on that ATS (e.g. "stripe")
   # Per-recipient overrides can also be supplied in the recipients CSV.
   default_vendor: null
-  fetch_description: true     # pull full JD text (used by the AI generator)
-  match_keywords: ["Software Engineer", "Backend", "Full-Stack", "SDE", "New Grad"]
+  fetch_description: true # pull full JD text (used by the AI generator)
+  match_keywords:
+    ["Software Engineer", "Backend", "Full-Stack", "SDE", "New Grad"]
 
 # --- Safety -----------------------------------------------------------------
-dry_run: true   # when true, nothing is actually sent — emails are logged only
+dry_run: false # when true, nothing is actually sent — emails are logged only

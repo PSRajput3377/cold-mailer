@@ -313,9 +313,26 @@ Open `my_recipients.csv` in Excel, Google Sheets, or a text editor.
 **Allowed `designation` values:** `HR`, `Recruiter`, `Talent Acquisition`,
 `Engineering Manager`, `Software Engineer`, `Founder`.
 
-The system picks an email template category based on designation (e.g. recruiters
-get job inquiries, engineers get referral requests). Override with
-`--category referral_request` on the command line if needed.
+The system picks an email template category based on designation:
+
+| Designation | Category | What the email does |
+|-------------|----------|---------------------|
+| HR, Recruiter, Talent Acquisition | `professional_application` | A formal application — introduces you and asks them to consider you for openings. **Does not** ask for a referral. |
+| Engineering Manager, Software Engineer, Founder | `referral_request` | A warmer note asking the person to refer you. |
+
+Override the auto-pick with `--category professional_application` (or
+`--category referral_request`) on the command line.
+
+**Linking specific roles in a referral:** put one or more job URLs in the
+`job_url` column, separated by `|` (or `;`) for multiple roles:
+
+```csv
+DevRev,devrev.ai,John,Roe,Software Engineer,,,https://devrev.ai/jobs/1|https://devrev.ai/jobs/2
+```
+
+When `job_url` has a value, the referral email automatically lists the role
+links and adjusts its wording ("this role" vs. "either of these roles"). With no
+`job_url`, it sends a clean general referral note instead.
 
 ---
 
@@ -505,19 +522,32 @@ recruiters → job inquiries) unless you force one with `--category`.
 
 ---
 
-## Template categories (10 × 20 = 200)
+## Template categories
 
-`referral_request`, `job_opening_inquiry`, `resume_review_request`,
-`circulate_resume`, `swe_opportunity`, `new_grad`,
-`applied_requesting_referral`, `followup_after_application`,
-`followup_after_recruiter`, `informational_chat`.
+Two categories are wired to the designation auto-pick and used by default:
+
+- **`professional_application`** — formal application for HR / Recruiters.
+- **`referral_request`** — referral ask for engineers / managers / founders,
+  with optional role-link support (see the recipient CSV section).
+
+A larger library of generic categories also ships and can be enabled in
+`config.yaml` (`templates.enabled_categories`) or forced with `--category`:
+`job_opening_inquiry`, `resume_review_request`, `circulate_resume`,
+`swe_opportunity`, `new_grad`, `applied_requesting_referral`,
+`followup_after_application`, `followup_after_recruiter`, `informational_chat`.
+
+> By default `config.yaml` enables only `professional_application` and
+> `referral_request`. Set `enabled_categories: []` to load every category.
 
 Templates live in `templates/<category>.yaml` and use `{{placeholders}}`. Add or
 edit freely — they're loaded at runtime. Available placeholders include
 `{{first_name}}`, `{{company}}`, `{{role}}`, `{{job_title}}`, `{{job_id}}`,
-`{{skills}}`, `{{resume_highlights}}`, `{{top_highlight}}`,
+`{{job_url}}`, `{{job_urls_list}}` (a list, for `{% for %}`), `{{candidate_name}}`,
+`{{candidate_email}}`, `{{skills}}`, `{{resume_highlights}}`, `{{top_highlight}}`,
 `{{recent_internship}}`, `{{github}}`, `{{linkedin}}`, `{{portfolio}}`,
-`{{greeting}}`, `{{cta}}`, and `{{signature}}`.
+`{{greeting}}`, `{{cta}}`, and `{{signature}}`. A template may define its own
+`subject:` (rendered with the same placeholders); otherwise a subject is
+auto-generated.
 
 ---
 

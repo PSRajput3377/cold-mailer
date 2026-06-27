@@ -8,9 +8,20 @@ skills, internship, portfolio, GitHub and LinkedIn (Step 4).
 """
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Optional
 
 from models import Candidate, Recipient
+
+
+def _parse_job_urls(job_url: str) -> list[str]:
+    """Split one or more job URLs from a CSV cell (| or ; separated)."""
+    raw = (job_url or "").strip()
+    if not raw:
+        return []
+    for sep in ("|", ";"):
+        if sep in raw:
+            return [u.strip() for u in raw.split(sep) if u.strip()]
+    return [raw]
 
 
 def build_context(candidate: Candidate, recipient: Recipient) -> dict[str, Any]:
@@ -33,8 +44,10 @@ def build_context(candidate: Candidate, recipient: Recipient) -> dict[str, Any]:
         "role": role,
         "job_id": recipient.job_id or "",
         "job_url": recipient.job_url or "",
+        "job_urls_list": _parse_job_urls(recipient.job_url or ""),
         # -- candidate (sender) --
         "candidate_name": candidate.full_name,
+        "candidate_email": candidate.email,
         "candidate_first_name": candidate.first_name,
         "preferred_role": candidate.preferred_role,
         "linkedin": candidate.linkedin_url,

@@ -48,6 +48,7 @@ CATEGORIES: dict[str, str] = {
     "followup_after_application": "Following up after application",
     "followup_after_recruiter": "Following up after recruiter connection",
     "informational_chat": "Request for informational chat",
+    "professional_application": "Professional Job Application",
 }
 
 
@@ -100,8 +101,20 @@ class TemplateEngine:
     def get_templates(self, category: str) -> list[Template]:
         return list(self._by_category.get(self._key(category), []))
 
-    def choose(self, category: str, rng: Optional[random.Random] = None) -> Template:
-        """Pick one template from a category at random."""
+    def get_by_id(self, category: str, template_id: str) -> Optional[Template]:
+        """Return a template by id within a category, or None."""
+        for t in self.get_templates(category):
+            if t.id == template_id:
+                return t
+        return None
+
+    def choose(self, category: str, rng: Optional[random.Random] = None,
+               prefer_id: Optional[str] = None) -> Template:
+        """Pick one template from a category; use prefer_id when provided."""
+        if prefer_id:
+            found = self.get_by_id(category, prefer_id)
+            if found:
+                return found
         templates = self.get_templates(category)
         if not templates:
             raise ValueError(f"no templates for category {category!r}")

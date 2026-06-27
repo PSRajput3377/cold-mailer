@@ -1,0 +1,22 @@
+category: professional_application
+label: "Professional Job Application"
+templates:
+  # For HR / Recruiters — formal application without asking for referral
+  - id: professional_application_01
+    subject: "Application for Software Engineer Opportunities at {{company}}"
+    body: |
+      Dear {{first_name}},
+
+      I hope you're doing well.
+
+      My name is {{candidate_name}}, and I recently completed my Bachelor's degree in Computer Science and Engineering. I am currently working as an Applied AI Engineer Intern at DevRev, where I contribute to AI-powered workflows, backend integrations, automation systems, and product development.
+
+      I have hands-on experience with React, FastAPI, PostgreSQL, AWS, and modern software development practices. I have also designed and deployed a centralized placement portal serving thousands of students across multiple institutions, focusing on scalability, performance optimization, and cloud deployment.
+
+      {% if job_title %}I am actively seeking {{job_title}} opportunities{% else %}I am actively seeking Software Engineer, Backend Engineer, Full Stack Engineer, or Applied AI Engineer opportunities{% endif %} within {{company}}. I would be grateful if you could consider my profile for any relevant openings within your organization.
+
+      Please find my resume attached for your review. I would appreciate the opportunity to discuss how my skills and experience can contribute to your team.
+
+      Thank you for your time and consideration. I look forward to hearing from you.
+
+      {{signature}}

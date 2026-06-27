@@ -201,11 +201,21 @@ class ColdMailer:
                            recipient.person_full_name)
 
         # --- Template path (default / fallback).
-        template = self.templates.choose(category, rng)
+        prefer_id = None
+        if category == "referral_request":
+            prefer_id = ("referral_with_roles_01" if context.get("job_urls_list")
+                         else "referral_general_01")
+        elif category == "professional_application":
+            prefer_id = "professional_application_01"
+
+        template = self.templates.choose(category, rng, prefer_id=prefer_id)
         body = self.templates.render(template, context)
         body = self.personalizer.personalize_body(body, rng)
-        body = tidy_text(body)  # clean artifacts from empty optional placeholders
-        subject = (self.subjects.generate(context, category, rng)).strip()
+        body = tidy_text(body)
+        if template.subject:
+            subject = self.templates.render(template.subject, context).strip()
+        else:
+            subject = self.subjects.generate(context, category, rng).strip()
 
         return PreparedEmail(
             recipient=recipient,
@@ -238,15 +248,12 @@ class ColdMailer:
     def _choose_category(self, recipient: Recipient, rng: random.Random) -> str:
         """Pick a sensible default category based on the recipient's role."""
         by_designation = {
-            Designation.HR: ["job_opening_inquiry", "swe_opportunity"],
-            Designation.RECRUITER: ["job_opening_inquiry", "followup_after_recruiter",
-                                    "applied_requesting_referral"],
-            Designation.TALENT_ACQUISITION: ["job_opening_inquiry", "swe_opportunity"],
-            Designation.ENGINEERING_MANAGER: ["informational_chat", "swe_opportunity",
-                                             "resume_review_request"],
-            Designation.SOFTWARE_ENGINEER: ["referral_request", "informational_chat",
-                                           "circulate_resume"],
-            Designation.FOUNDER: ["swe_opportunity", "informational_chat"],
+            Designation.HR: ["professional_application"],
+            Designation.RECRUITER: ["professional_application"],
+            Designation.TALENT_ACQUISITION: ["professional_application"],
+            Designation.ENGINEERING_MANAGER: ["referral_request"],
+            Designation.SOFTWARE_ENGINEER: ["referral_request"],
+            Designation.FOUNDER: ["referral_request"],
         }
         options = [c for c in by_designation.get(recipient.designation, list(CATEGORIES))
                    if self.templates.count(c) > 0]
