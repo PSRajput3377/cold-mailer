@@ -51,11 +51,14 @@ cold_mailer/
 ├── email_sender.py       # Step 8/12 — providers, MIME, attachments, retry
 ├── logger.py             # Step 10/11 — CSV logs + dedup
 ├── utils.py              # shared helpers
-├── templates/            # 10 YAML files, 20 templates each
+├── templates/            # per-category YAML template files
+├── sources/              # job-board scrapers (Greenhouse / Lever / Ashby)
 ├── tests/                # offline test suite
 ├── assets/               # your resume / cover letter / etc. (git-ignored)
 ├── logs/                 # CSV output (git-ignored)
-├── config.yaml           # all configuration
+├── config.example.yaml   # config template — copy to config.yaml
+├── config.yaml           # your local config (git-ignored)
+├── ai_generator.py       # optional Claude-written emails
 ├── .env.example          # secrets template
 └── requirements.txt
 ```
@@ -83,7 +86,14 @@ GMAIL_USERNAME=sam.lee@gmail.com
 GMAIL_APP_PASSWORD=abcd efgh ijkl mnop      # 16-char Google App Password
 ```
 
-**3. Set yourself as the sender** in `config.yaml`:
+**3. Create your config and set yourself as the sender.** Copy the template
+(your real `config.yaml` is git-ignored, so it never ends up in the repo):
+
+```bash
+cp config.example.yaml config.yaml
+```
+
+Then edit `config.yaml`:
 
 ```yaml
 sender:
@@ -230,9 +240,14 @@ Use the 16-character App Password — **not** your normal Gmail login password.
 
 ---
 
-### Step 4 — Edit `config.yaml`
+### Step 4 — Create and edit `config.yaml`
 
-Open `config.yaml` and update at least these sections:
+Copy the template, then open `config.yaml` and update at least these sections.
+Your `config.yaml` is git-ignored so your personal details stay local:
+
+```bash
+cp config.example.yaml config.yaml
+```
 
 | Setting | What to change |
 |---------|----------------|

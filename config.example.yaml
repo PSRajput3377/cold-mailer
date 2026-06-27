@@ -148,4 +148,4 @@ job_sources:
     ["Software Engineer", "Backend", "Full-Stack", "SDE", "New Grad"]
 
 # --- Safety -----------------------------------------------------------------
-dry_run: false # when true, nothing is actually sent — emails are logged only
+dry_run: true # when true, nothing is actually sent — emails are logged only

@@ -1,6 +1,9 @@
 # Secrets
 .env
 
+# Local config with personal details (copy config.example.yaml to config.yaml)
+config.yaml
+
 # Logs (runtime output)
 logs/*.csv
 
