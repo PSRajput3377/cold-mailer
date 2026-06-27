@@ -1,6 +1,6 @@
 company_name,company_domain,person_first_name,person_last_name,designation,job_title,job_id,job_url
 Stripe,,Jane,Doe,Recruiter,Backend Engineer,JR-4821,https://stripe.com/jobs/4821
-DevRev,devrev.ai,Aarav,Sharma,Engineering Manager,Software Engineer,,
-Atlassian,,Maria,Garcia,Talent Acquisition,Full-Stack Engineer,ATL-9087,
-Notion,notion.so,Liam,Chen,Software Engineer,,,
-Figma,,Olivia,Brown,HR,New Grad Software Engineer,,
+DevRev,devrev.ai,John,Roe,Engineering Manager,Software Engineer,,
+Atlassian,,Alex,Poe,Talent Acquisition,Full-Stack Engineer,ATL-9087,
+Notion,notion.so,Sam,Coe,Software Engineer,,,
+Figma,,Pat,Loe,HR,New Grad Software Engineer,,

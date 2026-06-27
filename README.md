@@ -102,8 +102,8 @@ recent internship are pulled from it automatically).
 ```csv
 company_name,company_domain,person_first_name,person_last_name,designation,job_title,job_id
 Stripe,stripe.com,Jane,Doe,Recruiter,Backend Engineer,JR-4821
-DevRev,devrev.ai,Aarav,Sharma,Engineering Manager,Software Engineer,
-Figma,,Olivia,Brown,HR,New Grad Software Engineer,
+DevRev,devrev.ai,John,Roe,Engineering Manager,Software Engineer,
+Figma,,Pat,Loe,HR,New Grad Software Engineer,
 ```
 
 Only `company_name`, `person_first_name`, `person_last_name`, and `designation`
@@ -495,7 +495,7 @@ Optional: `company_domain`, `job_title`, `job_id`, `job_url`.
 ```csv
 company_name,company_domain,person_first_name,person_last_name,designation,job_title,job_id,job_url
 Stripe,,Jane,Doe,Recruiter,Backend Engineer,JR-4821,https://stripe.com/jobs/4821
-DevRev,devrev.ai,Aarav,Sharma,Engineering Manager,Software Engineer,,
+DevRev,devrev.ai,John,Roe,Engineering Manager,Software Engineer,,
 ```
 
 `designation` is one of: `HR`, `Recruiter`, `Talent Acquisition`,
